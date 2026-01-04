@@ -3,29 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BorderLogix PNG | Cleared, Compliant, Reconciled</title>
+    <title>BorderLogix PNG | Single Window Trade Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         h1, h2, h3, .slogan { font-family: 'Montserrat', sans-serif; }
         
+        /* TEAL THEME COLORS */
+        .text-teal-primary { color: #0d9488; } /* Tailwind Teal-600 */
+        .bg-teal-primary { background-color: #0d9488; }
+        .bg-teal-dark { background-color: #0f172a; } /* Dark Slate for contrast */
+        .border-teal-primary { border-color: #0d9488; }
+
         .hero-bg {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('wharf_pom.jpg');
+            /* Dark Teal Overlay over the Wharf Image */
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(13, 148, 136, 0.4)), url('wharf_pom.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
-        .blx-green { color: #27ae60; }
-        .bg-blx-green { background-color: #27ae60; }
         .bg-whatsapp { background-color: #25D366; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/67576761118?text=Hello%20BorderLogix%20PNG,%20I%20would%20like%20to%20inquire%20about%20your%20Customs%20services." 
+    <a href="https://wa.me/67576761118?text=Hello%20BorderLogix%20PNG,%20I%20am%20enquiring%20via%20the%20Single%20Window%20portal." 
        target="_blank" 
        class="fixed bottom-6 right-6 z-[100] bg-whatsapp text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center">
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72 1.5 3.903 2.302 6.16 2.302h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -35,123 +45,133 @@
     <nav class="absolute top-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-transparent">
         <div class="flex items-center gap-3">
             <img src="blx_logo.jpg" alt="BorderLogix Logo" class="h-14 w-14 rounded-full border-2 border-white shadow-lg">
-            <span class="text-white font-bold text-xl tracking-tight hidden sm:block uppercase">BorderLogix PNG</span>
+            <span class="text-white font-bold text-xl tracking-tight hidden sm:block uppercase">BorderLogix Single Window</span>
         </div>
-        <div class="flex gap-4">
-            <a href="#services" class="text-white font-semibold hover:text-green-400 hidden md:block mt-2">Services</a>
-            <a href="#quote" class="bg-blx-green text-white px-6 py-2 rounded-lg font-bold hover:bg-green-700 transition shadow-lg">Request Quote</a>
+        <div class="flex gap-6 items-center">
+            <a href="https://wa.me/67576761118" target="_blank" class="text-white text-sm font-semibold hover:text-teal-400 transition hidden md:block">WhatsApp Support</a>
+            <a href="#quote" class="bg-teal-primary text-white px-6 py-2 rounded-lg font-bold hover:bg-teal-700 transition shadow-lg">Request Quote</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-bg h-screen flex items-center justify-center text-center text-white px-4">
+    <header class="hero-bg h-[90vh] flex items-center justify-center text-center text-white px-4">
         <div class="max-w-5xl">
-            <h1 class="text-5xl md:text-8xl font-extrabold mb-4 tracking-tighter uppercase leading-tight">BorderLogix PNG</h1>
-            <p class="slogan text-xl md:text-3xl font-light tracking-[0.2em] uppercase mb-12 text-green-400 italic">
+            <span class="bg-teal-500/20 backdrop-blur-sm text-teal-300 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-6 inline-block border border-teal-500/30">
+                PNG Trade & Customs Portal
+            </span>
+            <h1 class="text-5xl md:text-8xl font-extrabold mb-4 tracking-tighter uppercase leading-none">BorderLogix PNG</h1>
+            <p class="slogan text-xl md:text-3xl font-light tracking-[0.3em] uppercase mb-12 text-teal-200 italic">
                 Cleared. Compliant. Reconciled.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#quote" class="bg-blx-green text-white px-10 py-4 rounded-lg text-lg font-bold hover:bg-green-700 transition shadow-2xl">Request a Consultation</a>
-                <a href="#services" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-lg text-lg font-bold hover:bg-white/20 transition">Our Services</a>
+                <a href="#quote" class="bg-teal-primary text-white px-10 py-4 rounded-xl text-lg font-bold hover:bg-teal-700 transition shadow-2xl">Consultancy Services</a>
+                <a href="https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221dFXFEcBtnhkKBYaixbYqHFYomohpfc7a%22%5D,%22action%22:%22open%22,%22userId%22:%22104124986487530328538%22%7D" 
+                   target="_blank" 
+                   class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-4 rounded-xl text-lg font-bold hover:bg-white/20 transition flex items-center gap-2 justify-center">
+                    Launch HS Tool
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- Services Section -->
-    <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold mb-4">Professional Customs Solutions</h2>
-            <div class="h-1.5 w-24 bg-blx-green mx-auto"></div>
-        </div>
-        
+    <!-- Single Window Services Hub -->
+    <section id="services" class="py-24 px-6 max-w-7xl mx-auto -mt-20 relative z-10">
         <div class="grid md:grid-cols-3 gap-8">
-            <!-- Advice -->
-            <div class="bg-white p-10 rounded-2xl shadow-sm border-b-4 border-blx-green hover:shadow-xl transition">
-                <div class="text-4xl mb-6">⚖️</div>
-                <h3 class="text-2xl font-bold mb-4">Expert Advice</h3>
-                <p class="text-slate-600 leading-relaxed">Consultancy on all PNG Customs matters, tariff interpretation, and regulatory compliance to protect your trade operations.</p>
+            
+            <!-- Service 1 -->
+            <div class="glass-card p-10 rounded-3xl shadow-xl border-t-8 border-teal-primary hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-teal-primary">Customs Advice</h3>
+                <p class="text-slate-600 leading-relaxed mb-6">Strategic advisory for PNG compliance, tariff interpretation, and regulatory barrier navigation.</p>
+                <a href="#quote" class="text-teal-600 font-bold hover:underline">Inquire Expert Advice &rarr;</a>
             </div>
 
-            <!-- Drawbacks -->
-            <div class="bg-white p-10 rounded-2xl shadow-sm border-b-4 border-blx-green hover:shadow-xl transition">
-                <div class="text-4xl mb-6">💰</div>
-                <h3 class="text-2xl font-bold mb-4">Duty Drawbacks</h3>
-                <p class="text-slate-600 leading-relaxed">Specialized reconciliation to help you reclaim overpaid duties and taxes, ensuring your business remains financially efficient.</p>
+            <!-- Service 2 -->
+            <div class="glass-card p-10 rounded-3xl shadow-xl border-t-8 border-teal-primary hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zM17 13v-2V7l-5-5L7 7v4l-2 2v2l5 5h4l5-5v-2z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-teal-primary">Duty Drawbacks</h3>
+                <p class="text-slate-600 leading-relaxed mb-6">Automated reconciliation of overpaid duties. We help you reclaim capital through efficient drawback processing.</p>
+                <a href="#quote" class="text-teal-600 font-bold hover:underline">Start Reconciliation &rarr;</a>
             </div>
 
-            <!-- HS Tool Service Description -->
-            <div class="bg-white p-10 rounded-2xl shadow-sm border-b-4 border-blx-green hover:shadow-xl transition">
-                <div class="text-4xl mb-6">🔍</div>
-                <h3 class="text-2xl font-bold mb-4">HS Code Tool</h3>
-                <p class="text-slate-600 leading-relaxed">Advanced digital HS Code classifying tool designed specifically for traders, brokers, and compliance officers in PNG.</p>
+            <!-- Service 3 (App Highlight) -->
+            <div class="bg-teal-primary p-10 rounded-3xl shadow-xl border-t-8 border-teal-400 text-white hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">HS Classifying Tool</h3>
+                <p class="text-teal-50 leading-relaxed mb-6">Powered by AI to help Brokers and Compliance Officers find accurate tariff codes instantly.</p>
+                <a href="https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221dFXFEcBtnhkKBYaixbYqHFYomohpfc7a%22%5D,%22action%22:%22open%22,%22userId%22:%22104124986487530328538%22%7D" target="_blank" class="inline-block bg-white text-teal-700 px-6 py-2 rounded-lg font-bold hover:bg-teal-50 transition">Launch Tool Now</a>
             </div>
         </div>
     </section>
 
-    <!-- Quote Form Section -->
-    <section id="quote" class="py-24 bg-slate-900 text-white relative">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            
+    <!-- Request Quote Form -->
+    <section id="quote" class="py-24 bg-teal-dark text-white overflow-hidden relative">
+        <!-- Decorative Teal Glow -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
+
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 relative z-10">
             <div>
                 <h2 class="text-4xl font-bold mb-6 italic slogan">Cleared, Compliant, Reconciled.</h2>
-                <div class="space-y-8 border-l-2 border-blx-green pl-6 mb-10">
-                    <div>
-                        <h4 class="text-blx-green font-bold uppercase text-xs tracking-widest mb-1">Office Address</h4>
+                <p class="text-teal-100/60 text-lg mb-10 leading-relaxed">Fill out the secure Single Window inquiry form. Our compliance team at <span class="text-white font-bold underline">md@borderlogixpng.com</span> will review your request immediately.</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-teal-900 rounded-full flex items-center justify-center border border-teal-700 group-hover:bg-teal-600 transition">📍</div>
                         <p class="text-lg">PO BOX 1301 BOROKO, NCD</p>
                     </div>
-                    <div>
-                        <h4 class="text-blx-green font-bold uppercase text-xs tracking-widest mb-1">Direct Line</h4>
-                        <p class="text-xl">+675 7676 1118</p>
+                    <div class="flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-teal-900 rounded-full flex items-center justify-center border border-teal-700 group-hover:bg-teal-600 transition">📞</div>
+                        <p class="text-xl font-bold">+675 7676 1118</p>
                     </div>
-                    <div>
-                        <h4 class="text-blx-green font-bold uppercase text-xs tracking-widest mb-1">Tax ID</h4>
-                        <p class="text-lg opacity-80">TIN: 501843833</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-teal-900 rounded-full flex items-center justify-center border border-teal-700">📑</div>
+                        <p class="text-sm opacity-60">TIN: 501843833</p>
                     </div>
                 </div>
-                <a href="https://wa.me/67576761118" target="_blank" class="bg-whatsapp text-white px-8 py-3 rounded-lg font-bold hover:bg-green-600 transition inline-flex items-center gap-2">
-                    Message via WhatsApp
-                </a>
             </div>
 
             <!-- Form -->
-            <div class="bg-white p-8 md:p-10 rounded-2xl shadow-2xl text-slate-900">
-                <h3 class="text-2xl font-bold mb-6">Request a Quote</h3>
-                <form action="mailto:md@borderlogixpng.com" method="post" enctype="text/plain" class="space-y-5">
+            <div class="bg-white p-8 md:p-10 rounded-3xl shadow-2xl text-slate-900">
+                <form action="mailto:md@borderlogixpng.com" method="post" enctype="text/plain" class="space-y-6">
                     <div>
-                        <label class="block text-xs font-bold uppercase text-slate-500 mb-2">Email Address</label>
-                        <input type="email" name="Email" placeholder="name@company.com" required 
-                            class="w-full bg-slate-50 border border-slate-200 rounded-lg p-4 focus:ring-2 focus:ring-green-500 outline-none transition">
+                        <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Email Address</label>
+                        <input type="email" name="Email" placeholder="your@company.com" required 
+                               class="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 outline-none focus:ring-2 focus:ring-teal-500 transition">
                     </div>
-                    
                     <div>
-                        <label class="block text-xs font-bold uppercase text-slate-500 mb-2">Service of Interest</label>
-                        <select name="Service" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-4 focus:ring-2 focus:ring-green-500 outline-none transition appearance-none">
-                            <option value="Duty Drawbacks">Duty Drawbacks</option>
-                            <option value="Customs Advice">Customs Advice</option>
-                            <option value="HS Code Tool">HS Code Classifying Tool</option>
+                        <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Service Access Requested</label>
+                        <select name="Service" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 outline-none focus:ring-2 focus:ring-teal-500 transition appearance-none">
+                            <option value="HS Code Tool Access">HS Code Classifying Tool</option>
+                            <option value="Duty Drawback Reconciliation">Duty Drawbacks</option>
+                            <option value="Customs Compliance Advice">Customs Advice</option>
+                            <option value="General Single Window Inquiry">General Inquiry</option>
                         </select>
                     </div>
-
                     <div>
-                        <label class="block text-xs font-bold uppercase text-slate-500 mb-2">Remarks</label>
-                        <textarea name="Remarks" rows="4" placeholder="Tell us about your requirements..." 
-                            class="w-full bg-slate-50 border border-slate-200 rounded-lg p-4 focus:ring-2 focus:ring-green-500 outline-none transition"></textarea>
+                        <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Remarks</label>
+                        <textarea name="Remarks" rows="4" placeholder="Detail your specific requirements..." 
+                                  class="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 outline-none focus:ring-2 focus:ring-teal-500 transition"></textarea>
                     </div>
-
-                    <button type="submit" class="w-full bg-blx-green text-white font-bold py-5 rounded-lg text-lg hover:bg-green-700 transition shadow-lg uppercase tracking-wider">
-                        Submit Inquiry
+                    <button type="submit" class="w-full bg-teal-primary text-white font-bold py-5 rounded-xl text-lg hover:bg-teal-700 shadow-lg transition transform hover:scale-[1.02]">
+                        Submit Quote Request
                     </button>
+                    <p class="text-center text-[10px] text-slate-400 mt-4 italic uppercase tracking-widest">BorderLogix PNG Compliance Division</p>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-black text-center text-slate-500 border-t border-slate-800">
+    <footer class="py-12 bg-black text-center text-slate-600">
         <div class="flex flex-col items-center gap-4">
-            <img src="blx_logo.jpg" alt="BorderLogix Logo" class="h-10 w-10 rounded-full opacity-50 grayscale">
-            <p class="text-xs uppercase tracking-widest font-bold text-slate-400">BorderLogix PNG &copy; 2026</p>
-            <p class="text-[10px] opacity-60">Cleared, Compliant, Reconciled | TIN: 501843833</p>
+            <img src="blx_logo.jpg" alt="BorderLogix" class="h-10 w-10 rounded-full opacity-30 grayscale hover:opacity-100 transition duration-500">
+            <p class="text-xs uppercase tracking-widest font-bold">&copy; 2026 BorderLogix PNG. All Rights Reserved.</p>
         </div>
     </footer>
 
