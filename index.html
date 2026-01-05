@@ -10,104 +10,91 @@
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         h1, h2, h3, .slogan, .brand-text { font-family: 'Montserrat', sans-serif; }
         
-        /* BRAND COLORS */
+        /* ORIGINAL LOGO GREEN SCHEME */
         .text-blx-green { color: #2bb673; } 
         .bg-blx-green { background-color: #2bb673; }
         .border-blx-green { border-color: #2bb673; }
 
-        /* FIXED STATIONARY BACKGROUND */
-        .fixed-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* Make sure the image file name matches exactly */
-            background-image: url('wharf_png.jpg'); 
+        /* HERO SETTINGS - Reset to original scroll behavior */
+        .hero-section {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('wharf_pom.jpg');
             background-size: cover;
             background-position: center;
-            z-index: -1; /* Keeps it behind everything */
-        }
-
-        /* DARK OVERLAY FOR READABILITY */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.55); /* Darkens background slightly */
-            z-index: -1;
+            background-repeat: no-repeat;
         }
 
         /* BLINKING ANIMATION FOR YELLOW BUTTON */
         @keyframes blink {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.98); }
-            100% { opacity: 1; transform: scale(1); }
+            0% { opacity: 1; }
+            50% { opacity: 0.2; }
+            100% { opacity: 1; }
         }
         .animate-blink {
-            animation: blink 1.2s infinite ease-in-out;
+            animation: blink 1s infinite;
         }
 
-        /* FLOATING WHATSAPP BADGE */
+        /* WHATSAPP FLOATING BADGE */
         .wa-float {
             position: fixed;
             width: 55px;
             height: 55px;
-            bottom: 25px;
-            right: 25px;
+            bottom: 20px;
+            right: 20px;
             background-color: #25d366;
-            color: white;
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
             z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.2s ease;
+            transition: transform 0.3s ease;
         }
         .wa-float:hover { transform: scale(1.1); }
     </style>
 </head>
-<body class="bg-transparent text-white">
-
-    <!-- The Stationary Background -->
-    <div class="fixed-bg"></div>
-    <div class="overlay"></div>
+<body class="bg-gray-50 text-slate-900">
 
     <!-- Floating WhatsApp Badge -->
     <a href="https://wa.me/67576761118" class="wa-float" target="_blank">
-        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72 1.5 3.903 2.302 6.16 2.302h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72 1.5 3.903 2.302 6.16 2.302h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
     </a>
 
     <!-- Navigation Header -->
-    <nav class="fixed top-0 w-full z-50 px-4 py-3 md:px-8 md:py-6 flex justify-between items-center bg-black/40 backdrop-blur-md">
-        <div class="flex items-center gap-2">
-            <img src="blx_logo.jpg" alt="Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full border border-white">
-            <span class="brand-text text-blx-green font-extrabold text-lg md:text-2xl tracking-tighter uppercase">BorderLogix</span>
+    <nav class="absolute top-0 w-full z-50 px-4 py-4 md:px-8 md:py-6 flex justify-between items-center bg-transparent">
+        <div class="flex items-center gap-2 md:gap-3">
+            <img src="blx_logo.jpg" alt="Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full border border-white/50 shadow-lg">
+            <span class="brand-text text-blx-green font-extrabold text-xl md:text-2xl tracking-tighter uppercase">BorderLogix</span>
         </div>
         <div>
             <!-- Reduced size Quote Button for mobile -->
-            <a href="#quote" class="bg-blx-green text-white px-3 py-1.5 md:px-6 md:py-2 rounded-lg font-bold hover:brightness-110 transition uppercase text-[10px] md:text-xs tracking-widest">Request Quote</a>
+            <a href="#quote" class="bg-blx-green text-white px-3 py-1.5 md:px-6 md:py-2 rounded-lg font-bold hover:brightness-110 transition shadow-md uppercase text-[10px] md:text-xs tracking-widest">Request Quote</a>
         </div>
     </nav>
 
-    <!-- Hero Content -->
-    <header class="min-h-screen flex items-center justify-center text-center px-4 pt-20">
+    <!-- Hero Section -->
+    <header class="hero-section text-center text-white px-4">
         <div class="max-w-4xl">
-            <span class="bg-white/10 backdrop-blur-md text-white px-4 py-1 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] mb-10 inline-block border border-white/20">
+            <span class="bg-white/10 backdrop-blur-md text-white px-5 py-1 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] mb-10 inline-block border border-white/20">
                 Single Window Trade Portal
             </span>
             <h1 class="text-5xl md:text-9xl font-extrabold mb-4 tracking-tighter uppercase leading-none">BorderLogix</h1>
-            <p class="slogan text-lg md:text-3xl font-light tracking-[0.25em] uppercase mb-12 text-gray-200 italic">
+            <p class="slogan text-lg md:text-3xl font-light tracking-[0.2em] uppercase mb-12 text-gray-200 italic">
                 Cleared. Compliant. Reconciled.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#services" class="w-full sm:w-auto bg-blx-green text-white px-8 md:px-12 py-4 rounded-xl text-lg font-bold hover:brightness-110 transition shadow-2xl uppercase tracking-widest">Our Services</a>
+                <a href="#services" class="w-full sm:w-auto bg-blx-green text-white px-10 py-4 rounded-xl text-lg font-bold hover:brightness-110 transition shadow-2xl uppercase tracking-widest">Our Services</a>
                 
-                <!-- BLINKING YELLOW BUTTON -->
-                <button disabled class="w-full sm:w-auto bg-yellow-400 text-black px-8 md:px-12 py-4 rounded-xl text-[11px] font-black flex items-center gap-2 justify-center uppercase tracking-widest animate-blink border-2 border-yellow-600 shadow-xl">
+                <!-- BRIGHT YELLOW BLINKING BUTTON -->
+                <button disabled class="w-full sm:w-auto bg-yellow-400 text-black px-10 py-4 rounded-xl text-[11px] font-black flex items-center gap-2 justify-center uppercase tracking-widest animate-blink border-2 border-yellow-600 shadow-xl">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     HS Tool Coming Soon
                 </button>
@@ -115,78 +102,73 @@
         </div>
     </header>
 
-    <!-- Overlay Sections -->
-    <main class="relative z-10">
-        
-        <!-- Services Section -->
-        <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-10 md:p-14 rounded-3xl shadow-2xl border-t-8 border-blx-green text-slate-900 transform hover:-translate-y-2 transition duration-300">
-                    <h3 class="text-2xl font-extrabold mb-4 uppercase tracking-tight text-blx-green">Customs Advice</h3>
-                    <p class="text-slate-600 leading-relaxed font-medium">Professional strategic consulting for all PNG Customs matters. We ensure your business is navigated through compliance complexity with zero friction.</p>
-                </div>
-                <div class="bg-white p-10 md:p-14 rounded-3xl shadow-2xl border-t-8 border-blx-green text-slate-900 transform hover:-translate-y-2 transition duration-300">
-                    <h3 class="text-2xl font-extrabold mb-4 uppercase tracking-tight text-blx-green">Duty Drawbacks</h3>
-                    <p class="text-slate-600 leading-relaxed font-medium">Reclaim overpaid duties and taxes effectively. Our automated reconciliation services focus on maximizing your operational capital recovery.</p>
-                </div>
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-10 md:p-14 rounded-3xl shadow-xl border-t-8 border-blx-green transition-transform hover:-translate-y-1">
+                <h3 class="text-2xl font-extrabold mb-4 uppercase tracking-tight text-blx-green">Customs Advice</h3>
+                <p class="text-slate-600 leading-relaxed font-medium">Strategic consulting on all PNG Customs matters. We ensure your business is navigated through compliance complexity with absolute efficiency.</p>
             </div>
-        </section>
+            <div class="bg-white p-10 md:p-14 rounded-3xl shadow-xl border-t-8 border-blx-green transition-transform hover:-translate-y-1">
+                <h3 class="text-2xl font-extrabold mb-4 uppercase tracking-tight text-blx-green">Duty Drawbacks</h3>
+                <p class="text-slate-600 leading-relaxed font-medium">Identify and reclaim overpaid duties and taxes. Our automated reconciliation services focus on maximizing your operational capital recovery.</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- Form/Contact Section -->
-        <section id="quote" class="py-24 bg-zinc-900/95 backdrop-blur-xl border-t border-white/10">
-            <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-3xl md:text-5xl font-bold mb-10 italic slogan tracking-widest uppercase text-blx-green leading-tight">Cleared.<br>Compliant.<br>Reconciled.</h2>
-                    <div class="space-y-6 border-l-2 border-blx-green pl-8">
-                        <div>
-                            <p class="text-[10px] font-bold text-blx-green uppercase tracking-widest mb-1">Mailing Address</p>
-                            <p class="text-lg">PO BOX 1301 BOROKO, NCD</p>
-                        </div>
-                        <div>
-                            <p class="text-[10px] font-bold text-blx-green uppercase tracking-widest mb-1">Contact Line</p>
-                            <p class="text-2xl font-bold">+675 7676 1118</p>
-                        </div>
-                        <div>
-                            <p class="text-[10px] font-bold text-blx-green uppercase tracking-widest mb-1">Legal ID</p>
-                            <p class="text-sm opacity-50 font-mono tracking-widest">TIN: 501843833</p>
-                        </div>
+    <!-- Form Section -->
+    <section id="quote" class="py-24 bg-zinc-950 text-white relative">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-10 italic slogan tracking-widest uppercase text-blx-green leading-tight">Cleared.<br>Compliant.<br>Reconciled.</h2>
+                <div class="space-y-6 border-l-2 border-blx-green pl-8">
+                    <div>
+                        <p class="text-[10px] font-bold text-blx-green uppercase tracking-widest mb-1">Office Location</p>
+                        <p class="text-base md:text-lg">PO BOX 1301 BOROKO, NCD</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-blx-green uppercase tracking-widest mb-1">WhatsApp Business</p>
+                        <p class="text-2xl font-bold">+675 7676 1118</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-blx-green uppercase tracking-widest mb-1">Corporate Details</p>
+                        <p class="text-xs md:text-sm opacity-50 font-mono tracking-widest">TIN: 501843833</p>
                     </div>
                 </div>
-
-                <!-- Request Form -->
-                <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl text-slate-900">
-                    <form action="mailto:md@borderlogixpng.com" method="post" enctype="text/plain" class="space-y-6">
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase text-slate-400 mb-2 tracking-widest">Email Address</label>
-                            <input type="email" name="Email" placeholder="your@company.com" required 
-                                   class="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blx-green transition">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase text-slate-400 mb-2 tracking-widest">Service Inquiry</label>
-                            <select name="Service" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blx-green transition">
-                                <option>Customs Advice</option>
-                                <option>Duty Drawbacks</option>
-                                <option>HS Tool Information</option>
-                                <option>General Inquiry</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase text-slate-400 mb-2 tracking-widest">Remarks</label>
-                            <textarea name="Remarks" rows="4" placeholder="How can our team assist you?" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blx-green transition"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-blx-green text-white font-bold py-5 rounded-xl text-lg hover:brightness-110 shadow-xl transition uppercase tracking-widest">
-                            Send Request
-                        </button>
-                    </form>
-                </div>
             </div>
-        </section>
 
-        <!-- Footer -->
-        <footer class="py-12 bg-black text-center text-slate-700">
-            <p class="text-[10px] uppercase tracking-[0.5em] font-bold">&copy; 2026 BorderLogix PNG. All Rights Reserved.</p>
-        </footer>
-    </main>
+            <!-- Request Quote Form -->
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl text-slate-900">
+                <form action="mailto:md@borderlogixpng.com" method="post" enctype="text/plain" class="space-y-6">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-slate-400 mb-2 tracking-widest">Email Address</label>
+                        <input type="email" name="Email" placeholder="yourname@company.com" required 
+                               class="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blx-green transition">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-slate-400 mb-2 tracking-widest">Select Service</label>
+                        <select name="Service" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blx-green transition">
+                            <option>Customs Advice</option>
+                            <option>Duty Drawbacks</option>
+                            <option>General Single Window Inquiry</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-slate-400 mb-2 tracking-widest">Remarks</label>
+                        <textarea name="Remarks" rows="4" placeholder="Briefly describe your requirements..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blx-green transition"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blx-green text-white font-bold py-5 rounded-xl text-lg hover:brightness-110 shadow-xl transition uppercase tracking-widest">
+                        Submit Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black text-center text-slate-700">
+        <p class="text-[10px] uppercase tracking-[0.5em] font-bold">&copy; 2026 BorderLogix PNG. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
