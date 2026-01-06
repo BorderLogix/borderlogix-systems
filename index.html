@@ -18,63 +18,39 @@
                         border: '#e2e8f0',
                         background: '#ffffff',
                         foreground: '#020817',
+                        navy: '#0f172a'
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                 }
             }
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
         }
 
         function showPage(pageId) {
             const pages = ['home', 'about', 'solutions', 'resources', 'login', 'contact'];
             pages.forEach(p => document.getElementById(p).classList.add('hidden'));
             document.getElementById(pageId).classList.remove('hidden');
+            document.getElementById('mobile-menu').classList.add('hidden');
             window.scrollTo(0,0);
-            
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('text-primary', 'font-bold'));
-            document.getElementById('nav-' + pageId).classList.add('text-primary', 'font-bold');
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .shadcn-card { border: 1px solid #e2e8f0; border-radius: 0.5rem; background: #fff; }
-        .shadcn-button { background-color: #22c55e; color: white; border-radius: 0.375rem; padding: 0.5rem 1rem; font-weight: 600; transition: opacity 0.2s; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
-        .shadcn-button:hover { opacity: 0.9; }
-        
-        /* Blinking Animation */
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
         .coming-soon-blink {
-            background-color: #fef08a; /* Bright Yellow */
-            color: #854d0e; /* Dark Yellow Text */
-            animation: blink 1.5s infinite;
-            padding: 2px 8px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            border-radius: 4px;
-            display: inline-block;
-            margin-top: 8px;
+            background-color: #fef08a; color: #854d0e;
+            animation: blink 1.2s infinite;
+            padding: 2px 8px; font-size: 0.7rem; font-weight: 800;
+            text-transform: uppercase; border-radius: 4px;
+            display: inline-block; margin-top: 8px;
         }
-
-        .page-header-bg {
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .page-header-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(2, 8, 23, 0.7);
-        }
+        .shadcn-input { width: 100%; border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 0.75rem 1rem; font-size: 0.875rem; outline: none; }
+        .shadcn-input:focus { ring: 2px solid #22c55e; }
+        .page-header { height: 250px; background-size: cover; background-position: center; position: relative; display: flex; align-items: center; justify-content: center; }
+        .page-header::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
     </style>
 </head>
 <body class="bg-white text-foreground antialiased">
@@ -84,170 +60,176 @@
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72 1.5 3.903 2.302 6.16 2.302h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white border-b border-border shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('home')">
-                <img src="blx_logo.jpg" alt="Logo" class="w-10 h-10 rounded-full">
-                <span class="font-extrabold text-xl tracking-tighter">BORDERLOGIX PNG</span>
-            </div>
-            
-            <div class="hidden md:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
-                <button id="nav-home" onclick="showPage('home')" class="nav-link text-primary">Home</button>
-                <button id="nav-about" onclick="showPage('about')" class="nav-link">About</button>
-                <button id="nav-solutions" onclick="showPage('solutions')" class="nav-link">Solutions</button>
-                <button id="nav-resources" onclick="showPage('resources')" class="nav-link">Resources</button>
-                <button id="nav-contact" onclick="showPage('contact')" class="nav-link">Contact</button>
-                <button id="nav-login" onclick="showPage('login')" class="shadcn-button">Client Login</button>
-            </div>
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 w-full z-50 bg-white border-b border-border h-16 flex items-center justify-between px-4">
+        <div class="flex items-center gap-2 cursor-pointer" onclick="showPage('home')">
+            <img src="blx_logo.jpg" alt="Logo" class="w-10 h-10 rounded-full">
+            <span class="font-extrabold text-xl tracking-tighter">BORDERLOGIX PNG</span>
         </div>
+        <!-- Hamburger Icon -->
+        <button onclick="toggleMenu()" class="p-2 text-slate-900">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
     </nav>
 
-    <main class="mt-20">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-navy hidden flex flex-col p-10 text-white">
+        <div class="flex justify-between items-center mb-12">
+            <span class="text-xs font-bold uppercase tracking-widest text-primary">Quick Links</span>
+            <button onclick="toggleMenu()" class="text-3xl">&times;</button>
+        </div>
+        <div class="flex flex-col gap-6 text-xl font-light">
+            <button onclick="showPage('home')" class="text-left hover:text-primary transition">Home</button>
+            <button onclick="showPage('about')" class="text-left hover:text-primary transition">About</button>
+            <button onclick="showPage('solutions')" class="text-left hover:text-primary transition">Solutions</button>
+            <button onclick="showPage('resources')" class="text-left hover:text-primary transition">Resources</button>
+            <button onclick="showPage('login')" class="text-left hover:text-primary transition text-primary font-bold">Client Portal</button>
+            <button onclick="showPage('contact')" class="text-left hover:text-primary transition">Contact</button>
+        </div>
+        <div class="mt-auto border-t border-slate-800 pt-8 space-y-4 text-sm text-slate-400">
+            <p class="font-bold text-white uppercase tracking-widest text-xs">Contact Us</p>
+            <p>PO BOX 1301 BOROKO, NCD</p>
+            <p>+675 7676 1118</p>
+            <p>md@borderlogixpng.com</p>
+        </div>
+    </div>
 
+    <!-- Main Content -->
+    <main>
         <!-- HOME PAGE -->
-        <section id="home">
+        <section id="home" class="animate-in fade-in duration-500 pt-16">
             <div class="relative h-[80vh] bg-slate-900 flex items-center">
-                <img src="solutions-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-50" alt="Home Hero">
-                <div class="relative max-w-7xl mx-auto px-4 w-full text-white">
-                    <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4">CLEARED.<br>COMPLIANT.<br><span class="text-primary">RECONCILED.</span></h1>
-                    <p class="text-lg text-slate-300 max-w-2xl mb-10 font-medium">Single-window trade, border, and immigration gateway for Papua New Guinea.</p>
-                    <button onclick="showPage('solutions')" class="shadcn-button px-10 py-4 text-sm">Our Solutions</button>
+                <img src="solutions-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-50" alt="Home">
+                <div class="relative max-w-7xl mx-auto px-6 w-full text-white text-center">
+                    <h1 class="text-5xl md:text-8xl font-black tracking-tighter mb-4">CLEARED.<br>COMPLIANT.<br><span class="text-primary">RECONCILED.</span></h1>
+                    <button onclick="showPage('solutions')" class="bg-primary text-white px-10 py-4 rounded-md font-bold text-sm uppercase mt-8">Explore Solutions</button>
                 </div>
             </div>
         </section>
 
         <!-- ABOUT PAGE -->
-        <section id="about" class="hidden">
-            <div class="page-header-bg" style="background-image: url('about-bg.jpg');">
-                <div class="page-header-overlay"></div>
+        <section id="about" class="hidden animate-in fade-in duration-500">
+            <div class="page-header" style="background-image: url('about-bg.jpg');">
                 <h2 class="relative text-white text-4xl font-black uppercase tracking-tighter">About Us</h2>
             </div>
-            <div class="max-w-4xl mx-auto py-20 px-4">
-                <div class="mb-20">
-                    <h3 class="text-primary text-xs font-black uppercase tracking-[0.2em] mb-6">Our Mission</h3>
-                    <div class="space-y-6 text-slate-600 text-lg leading-relaxed">
-                        <p>To deliver timely, honest, and professional cross border solutions that ensure seamless movement and delivery of goods for all business types, sizes, and individual needs at a predictable cost.</p>
-                        <p>We provide innovative and strategic cross-border solutions to meet evolving freight and service demands, acting as a single-window gateway in PNG for integrated trade and immigration support.</p>
-                    </div>
+            <div class="max-w-4xl mx-auto py-20 px-6">
+                <h3 class="text-primary text-xs font-black uppercase tracking-widest mb-6">Our Mission</h3>
+                <div class="space-y-4 text-slate-600 text-lg leading-relaxed mb-16">
+                    <p>• Ensure seamless movement and delivery of goods for all business types, sizes, and individual needs at a predictable cost.</p>
+                    <p>• Provide innovative and strategic cross-border solutions to meet evolving freight and service demands.</p>
+                    <p>• Act as a single-window gateway in PNG for businesses and individuals requiring integrated trade, border, and immigration support.</p>
                 </div>
-
-                <h3 class="text-primary text-xs font-black uppercase tracking-[0.2em] mb-10">Core Values</h3>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="shadcn-card p-8"><h4 class="font-black uppercase text-sm mb-2">Interoperability</h4><p class="text-sm text-slate-500">Unified systems for global trade.</p></div>
-                    <div class="shadcn-card p-8"><h4 class="font-black uppercase text-sm mb-2">Promptitude</h4><p class="text-sm text-slate-500">Agile response and execution.</p></div>
-                    <div class="shadcn-card p-8"><h4 class="font-black uppercase text-sm mb-2">Professionalism</h4><p class="text-sm text-slate-500">Integrity in every transaction.</p></div>
-                    <div class="shadcn-card p-8"><h4 class="font-black uppercase text-sm mb-2">Commitment</h4><p class="text-sm text-slate-500">Dedicated to your supply chain.</p></div>
+                <h3 class="text-primary text-xs font-black uppercase tracking-widest mb-8">Values</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="border border-border p-6 rounded-lg"><h4 class="font-bold mb-1">Interoperability</h4></div>
+                    <div class="border border-border p-6 rounded-lg"><h4 class="font-bold mb-1">Promptitude</h4></div>
+                    <div class="border border-border p-6 rounded-lg"><h4 class="font-bold mb-1">Professionalism</h4></div>
+                    <div class="border border-border p-6 rounded-lg"><h4 class="font-bold mb-1">Commitment</h4></div>
                 </div>
             </div>
         </section>
 
         <!-- SOLUTIONS PAGE -->
-        <section id="solutions" class="hidden">
-            <div class="page-header-bg" style="background-image: url('solutions-bg.jpg');">
-                <div class="page-header-overlay"></div>
-                <h2 class="relative text-white text-4xl font-black uppercase tracking-tighter">Solutions</h2>
+        <section id="solutions" class="hidden animate-in fade-in duration-500">
+            <div class="page-header" style="background-image: url('wharf_pom.jpg');">
+                <h2 class="relative text-white text-4xl font-black uppercase tracking-tighter text-center">Solutions</h2>
             </div>
-            <div class="max-w-7xl mx-auto py-20 px-4 grid md:grid-cols-3 gap-8">
-                <div class="shadcn-card p-10 flex flex-col items-start">
-                    <h3 class="font-black text-xl mb-6 uppercase tracking-tight">HS Classification Tool</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8">Leverage our proprietary engine for precise Harmonized System nomenclature assignment to mitigate penalties.</p>
-                    <button class="shadcn-button w-full">Launch Tool Access</button>
-                    <div class="w-full text-center"><span class="coming-soon-blink italic">Coming Soon</span></div>
+            <div class="max-w-7xl mx-auto py-20 px-6 grid md:grid-cols-3 gap-8">
+                <div class="border border-border p-10 rounded-xl">
+                    <h3 class="font-black text-xl mb-4 uppercase">HS Classification Tool</h3>
+                    <p class="text-slate-500 text-sm mb-8">Proprietary engine for precise Harmonized System nomenclature assignment.</p>
+                    <button class="w-full bg-primary text-white py-4 rounded font-bold mb-2 uppercase text-xs">Launch Tool Access</button>
+                    <div class="text-center"><span class="coming-soon-blink italic">Coming Soon</span></div>
                 </div>
-                <div class="shadcn-card p-10 bg-slate-50 border-primary">
-                    <h3 class="font-black text-xl mb-6 uppercase tracking-tight">Customs Advisory</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8">Expert support on Customs Valuation, Rules of Origin, and Trade Agreement eligibility for global mandates.</p>
-                    <button class="shadcn-button w-full" onclick="showPage('contact')">Inquire Now</button>
+                <div class="border border-border p-10 rounded-xl bg-slate-50">
+                    <h3 class="font-black text-xl mb-4 uppercase">Customs Advisory</h3>
+                    <p class="text-slate-500 text-sm mb-8">Expert support on Customs Valuation, Rules of Origin, and Trade Agreement eligibility.</p>
+                    <button onclick="showPage('contact')" class="w-full bg-slate-900 text-white py-4 rounded font-bold uppercase text-xs">Inquire Now</button>
                 </div>
-                <div class="shadcn-card p-10 flex flex-col items-start">
-                    <h3 class="font-black text-xl mb-6 uppercase tracking-tight">Duty Drawbacks</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8">Identify and reclaim overpaid duties through comprehensive lifecycle management and revenue recovery programs.</p>
-                    <button class="shadcn-button w-full" onclick="showPage('contact')">Start Recovery</button>
+                <div class="border border-border p-10 rounded-xl">
+                    <h3 class="font-black text-xl mb-4 uppercase">Duty Drawbacks</h3>
+                    <p class="text-slate-500 text-sm mb-8">Comprehensive programs to identify and reclaim overpaid duties.</p>
+                    <button onclick="showPage('contact')" class="w-full bg-slate-900 text-white py-4 rounded font-bold uppercase text-xs">Start Recovery</button>
                 </div>
             </div>
         </section>
 
         <!-- RESOURCES PAGE -->
-        <section id="resources" class="hidden">
-            <div class="page-header-bg" style="background-image: url('resources-bg.jpg');">
-                <div class="page-header-overlay"></div>
+        <section id="resources" class="hidden animate-in fade-in duration-500">
+            <div class="page-header" style="background-image: url('resources-bg.jpg');">
                 <h2 class="relative text-white text-4xl font-black uppercase tracking-tighter">Resources</h2>
             </div>
-            <div class="max-w-4xl mx-auto py-20 px-4 space-y-4">
-                <a href="https://customs.gov.pg/legislations/" target="_blank" class="shadcn-card p-8 flex justify-between items-center hover:border-primary transition group">
-                    <div>
-                        <h4 class="font-black uppercase text-sm group-hover:text-primary transition">PNG Customs Laws</h4>
-                        <p class="text-xs text-slate-500 mt-1">Official legislation and trade acts.</p>
-                    </div>
-                    <span class="text-primary">→</span>
+            <div class="max-w-4xl mx-auto py-20 px-6 space-y-4">
+                <a href="https://customs.gov.pg/legislations/" target="_blank" class="block border border-border p-8 rounded-lg hover:border-primary transition">
+                    <h4 class="font-black uppercase text-sm">PNG Customs Laws</h4>
                 </a>
-                <a href="https://portal.customs.gov.pg/index.jsf" target="_blank" class="shadcn-card p-8 flex justify-between items-center hover:border-primary transition group">
-                    <div>
-                        <h4 class="font-black uppercase text-sm group-hover:text-primary transition">Asycuda World Portal</h4>
-                        <p class="text-xs text-slate-500 mt-1">Direct access to the trade portal.</p>
-                    </div>
-                    <span class="text-primary">→</span>
+                <a href="https://portal.customs.gov.pg/index.jsf" target="_blank" class="block border border-border p-8 rounded-lg hover:border-primary transition">
+                    <h4 class="font-black uppercase text-sm">Asycuda World Portal</h4>
                 </a>
             </div>
         </section>
 
         <!-- LOGIN PAGE -->
-        <section id="login" class="hidden py-32 bg-slate-50">
-            <div class="max-w-md mx-auto px-4">
-                <div class="shadcn-card p-10">
-                    <h2 class="font-black text-2xl uppercase tracking-tighter mb-8 text-center">Client Portal</h2>
-                    <form class="space-y-6">
-                        <input type="email" placeholder="EMAIL" class="w-full border-b border-border py-2 text-sm outline-none focus:border-primary">
-                        <input type="password" placeholder="PASSWORD" class="w-full border-b border-border py-2 text-sm outline-none focus:border-primary">
-                        <button class="shadcn-button w-full py-4">Authenticate</button>
+        <section id="login" class="hidden py-32 bg-slate-50 animate-in fade-in duration-500">
+            <div class="max-w-md mx-auto px-6">
+                <div class="bg-white border border-border p-10 rounded-2xl shadow-xl text-center">
+                    <img src="blx_logo.jpg" class="w-16 h-16 rounded-full mx-auto mb-6 border-2 border-primary p-1">
+                    <h2 class="text-3xl font-black mb-2 uppercase tracking-tighter">Secure Login</h2>
+                    <p class="text-slate-400 text-sm mb-10">Sign in to access your account</p>
+                    <form class="space-y-6 text-left">
+                        <input type="text" placeholder="USERNAME" class="shadcn-input">
+                        <input type="password" placeholder="PASSWORD" class="shadcn-input">
+                        <button class="w-full bg-primary text-white py-4 rounded-xl font-bold uppercase tracking-widest">Sign In</button>
                     </form>
                 </div>
             </div>
         </section>
 
         <!-- CONTACT PAGE -->
-        <section id="contact" class="hidden py-20 max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-20 items-start">
+        <section id="contact" class="hidden py-20 max-w-7xl mx-auto px-6 animate-in fade-in duration-500">
+            <div class="grid md:grid-cols-2 gap-20">
                 <div>
-                    <h2 class="text-5xl font-black uppercase tracking-tighter mb-10 leading-none">Contact<br>Regional Hub</h2>
-                    <div class="space-y-8 mb-12">
-                        <div class="flex items-center gap-4">
-                            <span class="text-primary font-black uppercase text-xs">Phone</span>
-                            <span class="font-bold">+675 7676 1118</span>
+                    <h2 class="text-4xl font-black uppercase tracking-tighter mb-8">Send Us a Message</h2>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div><label class="text-[10px] font-bold uppercase text-slate-400">Full Name *</label><input type="text" placeholder="Your name" class="shadcn-input"></div>
+                            <div><label class="text-[10px] font-bold uppercase text-slate-400">Email Address *</label><input type="email" placeholder="your@email.com" class="shadcn-input"></div>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <span class="text-primary font-black uppercase text-xs">Email</span>
-                            <span class="font-bold">md@borderlogixpng.com</span>
+                        <div><label class="text-[10px] font-bold uppercase text-slate-400">Company Name</label><input type="text" placeholder="Your company" class="shadcn-input"></div>
+                        <div>
+                            <label class="text-[10px] font-bold uppercase text-slate-400">Service Interest *</label>
+                            <select class="shadcn-input">
+                                <option>HS classification tool</option>
+                                <option>Customs and compliance advisory</option>
+                                <option>Duty drawbacks</option>
+                            </select>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <span class="text-primary font-black uppercase text-xs">Office</span>
-                            <span class="font-bold uppercase">PO Box 1301, Boroko. NCD</span>
-                        </div>
-                    </div>
-                    <div class="w-full h-64 bg-slate-100 rounded-lg flex items-center justify-center text-slate-300 font-bold uppercase text-xs italic">
-                        Embedded Map: Port Moresby, PNG
-                    </div>
+                        <div><label class="text-[10px] font-bold uppercase text-slate-400">Message *</label><textarea placeholder="Tell us about your needs..." class="shadcn-input h-32"></textarea></div>
+                        <button class="w-full bg-primary text-white py-4 rounded-xl font-bold uppercase text-xs tracking-widest shadow-lg">Submit Secure Request</button>
+                        <p class="text-center text-[10px] text-slate-400 flex items-center justify-center gap-1 font-bold">🔒 SSL 256-BIT ENCRYPTED</p>
+                    </form>
                 </div>
 
-                <div class="flex flex-col items-center">
-                    <div class="shadcn-card p-4 mb-6">
-                        <img src="wechat_qr.png" class="w-64 h-auto grayscale contrast-125" alt="WeChat QR">
+                <div class="space-y-12">
+                    <div class="flex flex-col items-center border border-border p-10 rounded-2xl">
+                        <img src="wechat_qr.png" class="w-48 h-auto grayscale mb-4" alt="WeChat">
+                        <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Scan to add me as friend</p>
                     </div>
-                    <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Scan to add me as friend</p>
+                    <div class="space-y-8 bg-slate-900 text-white p-10 rounded-2xl">
+                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1">Office Location</h4><p class="font-medium">PO BOX 1301 BOROKO, NCD</p></div>
+                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1">WhatsApp Business</h4><p class="font-medium text-xl">+675 7676 1118</p></div>
+                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1">Email Address</h4><p class="font-medium">md@borderlogixpng.com</p></div>
+                    </div>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <footer class="border-t border-border py-12 px-4 bg-white">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <span class="font-bold text-xs tracking-widest text-primary">TIN: 501843833</span>
-            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">&copy; 2026 BORDERLOGIX PNG. PORT MORESBY, PNG.</span>
-            <div class="flex gap-4">
-                <div class="w-6 h-6 bg-slate-100"></div><div class="w-6 h-6 bg-slate-100"></div>
-            </div>
+    <!-- Footer -->
+    <footer class="border-t border-border py-12 px-6 bg-white text-center">
+        <div class="max-w-7xl mx-auto flex flex-col items-center gap-6">
+            <span class="text-primary font-bold text-xs tracking-widest">TIN: 501843833</span>
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.4em]">&copy; 2026 BORDERLOGIX PNG. PORT MORESBY, PNG.</span>
         </div>
     </footer>
 
