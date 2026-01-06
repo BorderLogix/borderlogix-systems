@@ -6,7 +6,7 @@
     <title>BorderLogix PNG | Single Window Trade Gateway</title>
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
@@ -51,11 +51,10 @@
         .shadcn-input { width: 100%; border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 0.75rem 1rem; font-size: 0.875rem; outline: none; background: white; transition: border 0.2s; }
         .shadcn-input:focus { border-color: #22c55e; }
         
-        /* Section Headers (Textless Images) */
         .section-img-header { height: 350px; background-size: cover; background-position: center; position: relative; }
-        .section-img-header::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.2); }
+        .section-img-header::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.1); }
 
-        /* WhatsApp Floating Badge */
+        /* Floating WhatsApp Badge */
         .wa-float {
             position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
             background-color: #25d366; color: white; border-radius: 50%;
@@ -68,22 +67,27 @@
 </head>
 <body class="antialiased">
 
-    <!-- WhatsApp Floating Icon -->
-    <a href="https://wa.me/67576761118" target="_blank" class="wa-float" aria-label="WhatsApp Support">
+    <!-- WhatsApp Floating Badge -->
+    <a href="https://wa.me/67576761118" target="_blank" class="wa-float">
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72 1.5 3.903 2.302 6.16 2.302h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
-    <!-- Top Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white border-b border-border h-20 flex items-center justify-between px-6 md:px-12">
-        <div class="flex items-center gap-3">
-            <img src="blx_logo.jpg" alt="Logo" class="h-10 w-10 md:h-11 md:w-11 rounded-full border border-primary">
-            <span class="font-extrabold text-lg md:text-xl tracking-tighter text-primary">BORDERLOGIX PNG</span>
+    <!-- Top Navigation Header -->
+    <nav class="fixed top-0 w-full z-50 bg-white border-b border-border h-16 md:h-20 flex items-center justify-between px-4 md:px-12 shadow-sm">
+        <div class="flex items-center gap-2 md:gap-3 shrink-0">
+            <img src="blx_logo.jpg" alt="Logo" class="h-8 w-8 md:h-11 md:w-11 rounded-full border border-primary">
+            <span class="font-extrabold text-sm md:text-xl tracking-tighter text-primary uppercase whitespace-nowrap">BORDERLOGIX PNG</span>
         </div>
         
-        <div class="flex items-center gap-4">
-            <a href="#contact" class="bg-primary text-white px-3 py-1.5 md:px-5 md:py-2 rounded-lg font-bold text-[10px] md:text-xs uppercase tracking-widest shadow-lg hover:brightness-110 transition">Request Quote</a>
-            <button onclick="toggleMenu()" class="p-2 text-slate-900">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        <div class="flex items-center gap-3 md:gap-5">
+            <!-- REPOSITIONED & SMALLER QUOTE BUTTON -->
+            <a href="#contact" class="font-bold text-[9px] md:text-[11px] tracking-widest text-primary uppercase border border-primary px-3 py-1.5 md:px-5 md:py-2 rounded hover:bg-primary hover:text-white transition">
+                Request Quote
+            </a>
+            
+            <!-- Menu Button -->
+            <button onclick="toggleMenu()" class="p-1.5 text-slate-900 border border-slate-200 rounded hover:bg-slate-50 transition">
+                <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
     </nav>
@@ -91,7 +95,7 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 z-[60] bg-navy hidden flex flex-col p-10 text-white overflow-y-auto">
         <div class="flex justify-between items-center mb-12">
-            <span class="text-xs font-bold uppercase tracking-widest text-primary">Gateway Menu</span>
+            <span class="text-[10px] font-black uppercase tracking-widest text-primary">Gateway Navigation</span>
             <button onclick="toggleMenu()" class="text-4xl font-light">&times;</button>
         </div>
         <div class="flex flex-col gap-8 text-2xl font-light">
@@ -102,17 +106,15 @@
             <a href="#login" onclick="closeMenu()" class="hover:text-primary transition text-primary font-bold">Client Portal</a>
             <a href="#contact" onclick="closeMenu()" class="hover:text-primary transition">Contact</a>
         </div>
-        <div class="mt-20 border-t border-slate-800 pt-8 space-y-4 text-sm text-slate-400">
-            <p class="text-white font-bold uppercase tracking-widest text-xs">Direct Contact</p>
-            <p>PO BOX 1301 BOROKO, NCD</p>
+        <div class="mt-20 border-t border-slate-800 pt-8 space-y-4 text-xs text-slate-400 font-medium tracking-wide">
+            <p class="text-white font-bold uppercase tracking-widest text-[10px]">Office Hub</p>
+            <p>PO BOX 1301 BOROKO, NCD, PNG</p>
             <p>+675 7676 1118</p>
             <p>md@borderlogixpng.com</p>
         </div>
     </div>
 
-    <!-- MAIN SECTIONS -->
     <main>
-
         <!-- 1. HOME SECTION -->
         <section id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
             <div class="absolute inset-0">
@@ -121,7 +123,7 @@
             </div>
             <div class="relative max-w-5xl px-6 text-white pt-20">
                 <h1 class="text-5xl md:text-9xl font-black tracking-tighter mb-4 leading-none uppercase">CLEARED.<br>COMPLIANT.<br><span class="text-primary">RECONCILED.</span></h1>
-                <p class="text-lg md:text-2xl text-slate-200 mb-12 font-light tracking-widest uppercase">Single Window Trade Gateway</p>
+                <p class="text-sm md:text-2xl text-slate-200 mb-12 font-light tracking-widest uppercase">Single Window Trade Gateway</p>
                 <a href="#solutions" class="bg-primary text-white px-12 py-4 rounded-md font-bold uppercase tracking-widest text-sm shadow-2xl hover:brightness-110 transition">Our Services</a>
             </div>
         </section>
@@ -130,20 +132,10 @@
         <section id="about" class="bg-white">
             <div class="section-img-header" style="background-image: url('wharf_pom.jpg');"></div>
             <div class="max-w-4xl mx-auto py-24 px-6">
-                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-12 border-l-8 border-primary pl-8 text-navy">About Us</h2>
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-12 border-l-8 border-primary pl-8">About Us</h2>
                 <div class="space-y-10 mb-20 text-slate-600 text-lg md:text-xl leading-relaxed font-light">
-                    <h3 class="text-primary text-xs font-black uppercase tracking-[0.3em] mb-4">Mission Statement</h3>
-                    <div class="space-y-6">
-                        <p>To deliver timely, honest, and professional cross border solutions that ensure seamless movement and delivery of goods for all business types, sizes, and individual needs at a predictable cost.</p>
-                        <p>Provide innovative and strategic cross-border solutions to meet evolving freight and service demands.</p>
-                        <p>Act as a single-window gateway in PNG for businesses and individuals requiring integrated trade, border, and immigration support.</p>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="text-center p-4 border border-slate-100 rounded-xl font-black uppercase text-[10px] tracking-widest text-primary">Interoperability</div>
-                    <div class="text-center p-4 border border-slate-100 rounded-xl font-black uppercase text-[10px] tracking-widest text-primary">Promptitude</div>
-                    <div class="text-center p-4 border border-slate-100 rounded-xl font-black uppercase text-[10px] tracking-widest text-primary">Professionalism</div>
-                    <div class="text-center p-4 border border-slate-100 rounded-xl font-black uppercase text-[10px] tracking-widest text-primary">Commitment</div>
+                    <p>To deliver timely, honest, and professional cross border solutions that ensure seamless movement and delivery of goods for all business types, sizes, and individual needs at a predictable cost.</p>
+                    <p>We provide innovative and strategic cross-border solutions to meet evolving freight and service demands, acting as a single-window gateway in PNG for integrated trade and border support.</p>
                 </div>
             </div>
         </section>
@@ -151,29 +143,24 @@
         <!-- 3. SOLUTIONS SECTION -->
         <section id="solutions" class="bg-slate-50">
             <div class="section-img-header" style="background-image: url('wharf_lae.jpg');"></div>
-            <div class="max-w-7xl mx-auto py-24 px-6 text-center">
-                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-16 text-navy">Solutions</h2>
+            <div class="max-w-7xl mx-auto py-24 px-6">
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-16 text-center uppercase">Solutions</h2>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Solution 1 -->
-                    <div class="bg-white border border-slate-200 p-10 rounded-2xl shadow-xl flex flex-col items-center">
-                        <h3 class="font-black text-xl mb-6 uppercase tracking-tight text-navy">1. Automated HS Classification</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8">Precise Harmonized System nomenclature assignment using our proprietary engine to mitigate penalties.</p>
-                        <div class="mt-auto">
-                            <button class="bg-primary text-white w-full px-8 py-4 rounded font-bold uppercase text-[10px] tracking-widest shadow-lg">Launch Tool Access</button>
-                            <br><span class="coming-soon-blink">Coming Soon</span>
-                        </div>
+                    <div class="bg-white border border-slate-200 p-10 rounded-2xl shadow-xl text-center">
+                        <h3 class="font-black text-xl mb-4 uppercase">Automated HS Classification</h3>
+                        <p class="text-slate-500 text-sm mb-8">Precise Harmonized System nomenclature assignment using our proprietary engine.</p>
+                        <button class="bg-primary text-white w-full py-4 rounded font-bold uppercase text-[10px] tracking-widest shadow-lg">Launch Tool Access</button>
+                        <br><span class="coming-soon-blink">Coming Soon</span>
                     </div>
-                    <!-- Solution 2 -->
-                    <div class="bg-white border-2 border-primary p-10 rounded-2xl shadow-xl flex flex-col items-center scale-105 z-10">
-                        <h3 class="font-black text-xl mb-6 uppercase tracking-tight text-navy">2. Strategic Advisory</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8">Consulting on Customs Valuation, Rules of Origin, and Trade Agreement eligibility for global supply chains.</p>
-                        <a href="#contact" class="mt-auto bg-navy text-white w-full px-8 py-4 rounded font-bold uppercase text-[10px] tracking-widest shadow-lg">Inquire Now</a>
+                    <div class="bg-white border-2 border-primary p-10 rounded-2xl shadow-xl text-center scale-105 z-10">
+                        <h3 class="font-black text-xl mb-4 uppercase">Strategic Advisory</h3>
+                        <p class="text-slate-500 text-sm mb-8">Consulting on Customs Valuation and Rules of Origin for global supply chains.</p>
+                        <a href="#contact" class="bg-navy text-white w-full block py-4 rounded font-bold uppercase text-[10px] tracking-widest shadow-lg mt-4">Inquire Now</a>
                     </div>
-                    <!-- Solution 3 -->
-                    <div class="bg-white border border-slate-200 p-10 rounded-2xl shadow-xl flex flex-col items-center">
-                        <h3 class="font-black text-xl mb-6 uppercase tracking-tight text-navy">3. Duty Drawbacks</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8">Identify and reclaim overpaid duties through comprehensive lifecycle management and revenue recovery.</p>
-                        <a href="#contact" class="mt-auto bg-primary text-white w-full px-8 py-4 rounded font-bold uppercase text-[10px] tracking-widest shadow-lg">Start Recovery</a>
+                    <div class="bg-white border border-slate-200 p-10 rounded-2xl shadow-xl text-center">
+                        <h3 class="font-black text-xl mb-4 uppercase">Duty Drawbacks</h3>
+                        <p class="text-slate-500 text-sm mb-8">Identify and reclaim overpaid duties through comprehensive recovery cycles.</p>
+                        <a href="#contact" class="bg-primary text-white w-full block py-4 rounded font-bold uppercase text-[10px] tracking-widest shadow-lg mt-4">Start Recovery</a>
                     </div>
                 </div>
             </div>
@@ -183,15 +170,13 @@
         <section id="resources" class="bg-white">
             <div class="section-img-header" style="background-image: url('wharf_kimbe.jpg');"></div>
             <div class="max-w-4xl mx-auto py-24 px-6">
-                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-12 text-center text-navy">Trade Resources</h2>
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-12 text-center">Resources</h2>
                 <div class="grid gap-6">
-                    <a href="https://customs.gov.pg/legislations/" target="_blank" class="flex items-center justify-between p-10 border border-slate-200 rounded-2xl hover:border-primary transition group">
-                        <span class="font-black uppercase text-sm tracking-widest group-hover:text-primary transition">PNG Customs Laws</span>
-                        <span class="text-primary text-2xl font-bold">→</span>
+                    <a href="https://customs.gov.pg/legislations/" target="_blank" class="flex items-center justify-between p-10 border border-slate-200 rounded-2xl hover:border-primary transition group font-black uppercase text-sm">
+                        PNG Customs Laws <span>→</span>
                     </a>
-                    <a href="https://portal.customs.gov.pg/index.jsf" target="_blank" class="flex items-center justify-between p-10 border border-slate-200 rounded-2xl hover:border-primary transition group">
-                        <span class="font-black uppercase text-sm tracking-widest group-hover:text-primary transition">Asycuda World Portal</span>
-                        <span class="text-primary text-2xl font-bold">→</span>
+                    <a href="https://portal.customs.gov.pg/index.jsf" target="_blank" class="flex items-center justify-between p-10 border border-slate-200 rounded-2xl hover:border-primary transition group font-black uppercase text-sm">
+                        Asycuda World Portal <span>→</span>
                     </a>
                 </div>
             </div>
@@ -199,10 +184,10 @@
 
         <!-- 5. LOGIN SECTION -->
         <section id="login" class="py-32 bg-slate-100 flex items-center justify-center">
-            <div class="max-w-md w-full px-6">
-                <div class="bg-white p-10 rounded-3xl shadow-2xl border border-slate-200 text-center">
+            <div class="max-w-md w-full px-6 text-center">
+                <div class="bg-white p-10 rounded-3xl shadow-2xl border border-slate-200">
                     <img src="blx_logo.jpg" class="w-16 h-16 rounded-full mx-auto mb-6 border-2 border-primary">
-                    <h2 class="text-3xl font-black mb-10 uppercase tracking-tighter text-navy leading-none">Secure Login</h2>
+                    <h2 class="text-2xl font-black mb-8 uppercase tracking-tighter">Client Portal</h2>
                     <form class="space-y-6 text-left">
                         <input type="text" placeholder="USERNAME" class="shadcn-input">
                         <input type="password" placeholder="PASSWORD" class="shadcn-input">
@@ -216,37 +201,30 @@
         <section id="contact" class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20">
                 <div>
-                    <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-10 text-navy">Send Us a<br>Secure Message</h2>
+                    <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-10 leading-none">Contact<br>Securely</h2>
                     <form class="space-y-6">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div><label class="text-[10px] font-black uppercase text-slate-400 mb-1">Full Name *</label><input type="text" placeholder="Your name" class="shadcn-input" required></div>
-                            <div><label class="text-[10px] font-black uppercase text-slate-400 mb-1">Email *</label><input type="email" placeholder="your@email.com" class="shadcn-input" required></div>
-                        </div>
-                        <div><label class="text-[10px] font-black uppercase text-slate-400 mb-1">Company Name</label><input type="text" placeholder="Your company" class="shadcn-input"></div>
-                        <div>
-                            <label class="text-[10px] font-black uppercase text-slate-400 mb-1">Service Interest *</label>
-                            <select class="shadcn-input" required>
-                                <option value="" disabled selected>Choose a solution...</option>
-                                <option>HS classification tool</option>
-                                <option>Customs and compliance advisory</option>
-                                <option>Duty drawbacks</option>
-                            </select>
-                        </div>
-                        <div><label class="text-[10px] font-black uppercase text-slate-400 mb-1">Message *</label><textarea placeholder="Tell us about your needs..." class="shadcn-input h-32" required></textarea></div>
-                        <button type="submit" class="w-full bg-primary text-white py-5 rounded-xl font-bold uppercase text-[11px] tracking-widest shadow-xl transition hover:scale-[1.01]">Submit Secure Request</button>
-                        <p class="text-center text-[10px] text-slate-400 font-bold uppercase flex items-center justify-center gap-1 mt-4">🔒 SSL 256-BIT ENCRYPTED</p>
+                        <input type="text" placeholder="Full Name *" class="shadcn-input" required>
+                        <input type="email" placeholder="Email Address *" class="shadcn-input" required>
+                        <select class="shadcn-input" required>
+                            <option value="" disabled selected>Service Interest...</option>
+                            <option>HS Tool</option>
+                            <option>Compliance Advisory</option>
+                            <option>Duty Drawbacks</option>
+                        </select>
+                        <textarea placeholder="Tell us about your needs..." class="shadcn-input h-32" required></textarea>
+                        <button type="submit" class="w-full bg-primary text-white py-5 rounded-xl font-bold uppercase text-[11px] tracking-widest shadow-xl transition">Submit Request</button>
                     </form>
                 </div>
 
                 <div class="space-y-12">
                     <div class="flex flex-col items-center bg-slate-50 border border-slate-200 p-10 rounded-3xl">
-                        <img src="wechat_qr.png" class="w-48 h-auto grayscale opacity-80 mb-4" alt="WeChat QR Code">
+                        <img src="wechat_qr.png" class="w-48 h-auto grayscale opacity-80 mb-4" alt="WeChat QR">
                         <p class="text-[11px] font-black uppercase tracking-widest text-slate-400">Scan to add me as friend</p>
                     </div>
-                    <div class="bg-navy text-white p-10 rounded-3xl space-y-8 shadow-2xl">
+                    <div class="bg-navy text-white p-10 rounded-3xl space-y-8">
                         <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1">Office Hub</h4><p class="font-bold text-sm uppercase">PO BOX 1301 BOROKO, NCD, PNG</p></div>
                         <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1">WhatsApp Business</h4><p class="font-black text-2xl">+675 7676 1118</p></div>
-                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1">Direct Email</h4><p class="font-bold text-sm">md@borderlogixpng.com</p></div>
+                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1">Email</h4><p class="font-bold text-sm">md@borderlogixpng.com</p></div>
                     </div>
                 </div>
             </div>
@@ -254,11 +232,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-navy py-20 px-6 text-center border-t border-slate-800">
-        <div class="max-w-7xl mx-auto flex flex-col items-center gap-8">
-            <span class="text-white font-bold text-xs tracking-[0.2em] uppercase">TIN: 501843833</span>
-            <span class="text-white text-[10px] font-bold uppercase tracking-[0.5em] leading-relaxed">&copy; 2026 BORDERLOGIX PNG. PORT MORESBY, PNG. ALL RIGHTS RESERVED.</span>
-        </div>
+    <footer class="bg-navy py-16 px-6 text-center text-white">
+        <span class="font-black text-sm tracking-[0.2em] uppercase block mb-6">TIN: 501843833</span>
+        <span class="text-[11px] font-bold uppercase tracking-[0.5em] leading-relaxed">&copy; 2026 BORDERLOGIX PNG. PORT MORESBY, PNG. ALL RIGHTS RESERVED.</span>
     </footer>
 
 </body>
