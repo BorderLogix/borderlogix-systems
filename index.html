@@ -24,7 +24,8 @@
         }
 
         function toggleMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
         }
 
         function closeMenu() {
@@ -50,6 +51,7 @@
         .shadcn-input { width: 100%; border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 0.75rem 1rem; font-size: 0.875rem; outline: none; background: white; transition: border 0.2s; }
         .shadcn-input:focus { border-color: #22c55e; }
         
+        /* Section Headers Mapping */
         .section-img-header { height: 350px; background-size: cover; background-position: center; position: relative; }
         .section-img-header::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.15); }
 
@@ -70,7 +72,7 @@
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72 1.5 3.903 2.302 6.16 2.302h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
-    <!-- Fixed Navbar -->
+    <!-- Fixed Navbar Header -->
     <nav class="fixed top-0 w-full z-50 bg-white border-b border-border h-16 md:h-20 flex items-center justify-between px-4 md:px-12 shadow-sm">
         <div class="flex items-center gap-2 md:gap-3 shrink-0">
             <img src="blx_logo.jpg" alt="Logo" class="h-8 w-8 md:h-11 md:w-11 rounded-full border border-primary">
@@ -91,8 +93,8 @@
     </nav>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-navy hidden flex flex-col p-10 text-white overflow-y-auto">
-        <div class="flex justify-between items-center mb-12 text-primary font-bold uppercase text-[10px] tracking-widest">
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-navy hidden flex flex-col p-10 text-white overflow-y-auto text-center">
+        <div class="flex justify-between items-center mb-12 text-primary font-bold uppercase text-[10px] tracking-widest text-left">
             <span>Gateway Portal</span>
             <button onclick="toggleMenu()" class="text-4xl font-light text-white">&times;</button>
         </div>
@@ -102,11 +104,17 @@
             <a href="#solutions" onclick="closeMenu()" class="hover:text-primary transition">Solutions</a>
             <a href="#resources" onclick="closeMenu()" class="hover:text-primary transition">Resources</a>
             <a href="#login" onclick="closeMenu()" class="hover:text-primary transition text-primary font-bold">Client Portal</a>
-            <a href="#contact" onclick="closeMenu()" class="hover:text-primary transition text-primary font-bold">Request Quote</a>
+            <a href="#contact" onclick="closeMenu()" class="hover:text-primary transition text-primary font-bold underline">Request Quote</a>
+        </div>
+        <div class="mt-20 border-t border-slate-800 pt-8 space-y-4 text-xs text-slate-400 font-medium tracking-wide text-left">
+            <p class="text-white font-bold uppercase tracking-widest text-[10px]">Contact Us</p>
+            <p>PO BOX 1301 BOROKO, NCD, PNG</p>
+            <p>+675 7676 1118</p>
+            <p>md@borderlogixpng.com</p>
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
+    <!-- MAIN SECTIONS -->
     <main>
 
         <!-- 1. HOME SECTION (wharf_bialla.jpg) -->
@@ -116,8 +124,8 @@
                 <div class="absolute inset-0 bg-black/60"></div>
             </div>
             <div class="relative max-w-5xl px-6 text-white pt-20">
-                <h1 class="text-5xl md:text-9xl font-black tracking-tighter mb-4 leading-none uppercase">CLEARED.<br>COMPLIANT.<br><span class="text-primary">RECONCILED.</span></h1>
-                <p class="text-sm md:text-2xl text-slate-200 mb-12 font-light tracking-widest uppercase italic">The Single Window Gateway to Papua New Guinea</p>
+                <h1 class="text-5xl md:text-9xl font-black tracking-tighter mb-4 leading-none uppercase text-white shadow-sm">CLEARED.<br>COMPLIANT.<br><span class="text-primary">RECONCILED.</span></h1>
+                <p class="text-sm md:text-2xl text-slate-200 mb-12 font-light tracking-widest uppercase italic leading-snug">The Single Window Gateway to Papua New Guinea</p>
                 <a href="#solutions" class="bg-primary text-white px-12 py-4 rounded-md font-bold uppercase tracking-widest text-sm shadow-2xl hover:brightness-110 transition">Our Services</a>
             </div>
         </section>
@@ -129,23 +137,38 @@
                 <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-10 text-navy">About BorderLogix</h2>
                 
                 <div class="grid gap-8 text-slate-700 leading-relaxed text-lg">
-                    <p class="font-bold text-navy">Proudly PNG-owned and based in Port Moresby, BorderLogix is a premier provider of PNG cross-border solutions, driving efficiency for stakeholders in cross-border trade PNG.</p>
-                    <p>Founded in 2021 during the global pandemic, we leverage over 20 years of industry expertise and extensive nationwide networks. Our direct links to border agencies ensure our clients remain in full alignment with WCO standards PNG and the strict mandates of PNG Customs legislation compliance.</p>
-                    <p>Our cutting-edge Single Window trade PNG platform streamlines operations for local, international, and e-commerce traders. By utilizing automated reconciliation, we eliminate audit mis-classifications and ensure rapid, accurate transactions that meet the highest regulatory benchmarks.</p>
+                    <p class="font-bold text-navy">Proudly PNG-owned and based in Port Moresby, BorderLogix is a premier provider of cross-border solutions, driving efficiency for economic operators navigating PNG borders.</p>
+                    
+                    <p>Founded in 2021 during the global pandemic, we leverage over 20 years of industry expertise and extensive nationwide networks. Our direct links to border agencies ensure our clients remain in full alignment with **WCO SAFE framework and PNG Customs legislation**.</p>
+                    
+                    <p>Our cutting-edge **Single Window trade PNG** platform streamlines operations for local, international, and e-commerce traders. By utilizing automated reconciliation, we eliminate audit mis-classifications and ensure rapid, accurate transactions that meet the highest regulatory benchmarks.</p>
                 </div>
 
                 <div class="mt-20">
-                    <h3 class="text-primary text-xs font-black uppercase tracking-[0.2em] mb-10">Why Choose BorderLogix?</h3>
+                    <h3 class="text-primary text-xs font-black uppercase tracking-[0.2em] mb-10">Strategic Advantage</h3>
                     <div class="grid md:grid-cols-2 gap-6 text-sm">
-                        <div class="p-6 border border-slate-100 rounded-2xl bg-slate-50">
-                            <h4 class="font-bold text-navy mb-1 uppercase tracking-tight">Accelerated Solutions</h4>
-                            <p class="text-slate-600">Reducing dwell times and logistical bottlenecks via direct border agency links.</p>
+                        <div class="p-8 border border-slate-100 rounded-3xl bg-slate-50">
+                            <h4 class="font-bold text-navy mb-2 uppercase tracking-tight">Accelerated Solutions</h4>
+                            <p class="text-slate-600">Facilitating direct border agency links to reduce dwell times and eliminate logistical bottlenecks.</p>
                         </div>
-                        <div class="p-6 border border-slate-100 rounded-2xl bg-slate-50">
-                            <h4 class="font-bold text-navy mb-1 uppercase tracking-tight">Guaranteed Compliance</h4>
-                            <p class="text-slate-600">Strict adherence to WCO SAFE Framework and PNG Customs & Excise Act.</p>
+                        <div class="p-8 border border-slate-100 rounded-3xl bg-slate-50">
+                            <h4 class="font-bold text-navy mb-2 uppercase tracking-tight">Guaranteed Compliance</h4>
+                            <!-- EDITED SENTENCE BELOW -->
+                            <p class="text-slate-600">Adhering strictly to WCO SAFE standards and PNG Customs Act and relevant legislation.</p>
+                        </div>
+                        <div class="p-8 border border-slate-100 rounded-3xl bg-slate-50">
+                            <h4 class="font-bold text-navy mb-2 uppercase tracking-tight">Innovative Single Window</h4>
+                            <p class="text-slate-600">A digital ecosystem for PNG trade, designed to minimize manual errors and maximize transparency.</p>
+                        </div>
+                        <div class="p-8 border border-slate-100 rounded-3xl bg-slate-50">
+                            <h4 class="font-bold text-navy mb-2 uppercase tracking-tight">Risk Mitigation</h4>
+                            <p class="text-slate-600">Proactively identifying mis-classifications to protect our clients from expensive audit liabilities.</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="mt-16 text-center">
+                    <p class="font-black text-navy uppercase tracking-widest italic text-sm">Partner with BorderLogix today for compliant, future-ready cross-border trade in PNG.</p>
                 </div>
             </div>
         </section>
@@ -154,24 +177,24 @@
         <section id="solutions" class="bg-slate-50">
             <div class="section-img-header" style="background-image: url('wharf_lae.jpg');"></div>
             <div class="max-w-7xl mx-auto py-24 px-6">
-                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-16 text-center text-navy">Our Core Solutions</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white border border-slate-200 p-10 rounded-2xl shadow-xl flex flex-col items-center text-center">
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-16 text-center text-navy leading-none uppercase">Core Solutions</h2>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white border border-slate-200 p-10 rounded-2xl shadow-xl flex flex-col items-center">
                         <h3 class="font-black text-xl mb-6 uppercase text-navy leading-none">Automated HS Classification</h3>
-                        <p class="text-slate-500 text-sm mb-8">Proprietary engine for precise Harmonized System nomenclature assignment.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-8">Proprietary engine for precise Harmonized System nomenclature assignment to mitigate penalties.</p>
                         <div class="mt-auto">
                             <button class="bg-primary text-white w-full px-8 py-4 rounded font-bold uppercase text-[10px] tracking-widest shadow-lg">Launch Tool Access</button>
-                            <span class="coming-soon-blink">Coming Soon</span>
+                            <br><span class="coming-soon-blink">Coming Soon</span>
                         </div>
                     </div>
                     <div class="bg-white border-2 border-primary p-10 rounded-2xl shadow-2xl flex flex-col items-center text-center scale-105 z-10">
                         <h3 class="font-black text-xl mb-6 uppercase text-navy leading-none">Strategic Advisory</h3>
-                        <p class="text-slate-500 text-sm mb-8">End-to-end support on Customs Valuation, Rules of Origin, and compliance mandates.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-8">Expert support on Customs Valuation, Rules of Origin, and compliance for global supply chains.</p>
                         <a href="#contact" class="mt-auto bg-navy text-white w-full block py-4 rounded font-bold uppercase text-[10px] tracking-widest shadow-lg mt-4">Inquire Now</a>
                     </div>
-                    <div class="bg-white border border-slate-200 p-10 rounded-2xl shadow-xl flex flex-col items-center text-center">
+                    <div class="bg-white border border-slate-200 p-10 rounded-2xl shadow-xl flex flex-col items-center">
                         <h3 class="font-black text-xl mb-6 uppercase text-navy leading-none">Duty Drawbacks</h3>
-                        <p class="text-slate-500 text-sm mb-8">Reclaim overpaid duties through comprehensive lifecycle revenue recovery.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-8">Identify and reclaim overpaid duties through lifecycle management and revenue recovery cycles.</p>
                         <a href="#contact" class="mt-auto bg-primary text-white w-full block py-4 rounded font-bold uppercase text-[10px] tracking-widest shadow-lg mt-4 text-center">Start Recovery</a>
                     </div>
                 </div>
@@ -181,25 +204,27 @@
         <!-- 4. RESOURCES SECTION (wharf_kimbe.jpg) -->
         <section id="resources" class="bg-white">
             <div class="section-img-header" style="background-image: url('wharf_kimbe.jpg');"></div>
-            <div class="max-w-4xl mx-auto py-24 px-6 text-center">
-                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-12 text-navy">Trade Resources</h2>
+            <div class="max-w-4xl mx-auto py-24 px-6 text-center uppercase tracking-tighter">
+                <h2 class="text-4xl md:text-6xl font-black mb-12 text-navy">Resources</h2>
                 <div class="grid gap-6">
-                    <a href="https://customs.gov.pg/legislations/" target="_blank" class="flex items-center justify-between p-10 border border-slate-200 rounded-2xl hover:border-primary transition group font-black uppercase text-sm">
-                        PNG Customs Laws <span>→</span>
+                    <a href="https://customs.gov.pg/legislations/" target="_blank" class="flex items-center justify-between p-10 border border-slate-200 rounded-2xl hover:border-primary transition group">
+                        <span class="font-black uppercase text-sm tracking-widest group-hover:text-primary transition font-sans">PNG Customs Laws</span>
+                        <span class="text-primary text-2xl font-bold">→</span>
                     </a>
-                    <a href="https://portal.customs.gov.pg/index.jsf" target="_blank" class="flex items-center justify-between p-10 border border-slate-200 rounded-2xl hover:border-primary transition group font-black uppercase text-sm">
-                        Asycuda World Portal <span>→</span>
+                    <a href="https://portal.customs.gov.pg/index.jsf" target="_blank" class="flex items-center justify-between p-10 border border-slate-200 rounded-2xl hover:border-primary transition group">
+                        <span class="font-black uppercase text-sm tracking-widest group-hover:text-primary transition font-sans">Asycuda World Portal</span>
+                        <span class="text-primary text-2xl font-bold">→</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- 5. LOGIN SECTION -->
+        <!-- 5. LOGIN -->
         <section id="login" class="py-32 bg-slate-100 flex items-center justify-center">
-            <div class="max-w-md w-full px-6">
-                <div class="bg-white p-10 rounded-3xl shadow-2xl border border-slate-200 text-center">
+            <div class="max-w-md w-full px-6 text-center">
+                <div class="bg-white p-10 rounded-3xl shadow-2xl border border-slate-200">
                     <img src="blx_logo.jpg" class="w-16 h-16 rounded-full mx-auto mb-6 border-2 border-primary">
-                    <h2 class="text-3xl font-black mb-10 uppercase tracking-tighter text-navy leading-none">Client Portal</h2>
+                    <h2 class="text-2xl font-black mb-8 uppercase tracking-tighter leading-none">Client Portal</h2>
                     <form class="space-y-6 text-left">
                         <input type="text" placeholder="USERNAME" class="shadcn-input">
                         <input type="password" placeholder="PASSWORD" class="shadcn-input">
@@ -209,38 +234,41 @@
             </div>
         </section>
 
-        <!-- 6. CONTACT SECTION -->
-        <section id="contact" class="py-24 bg-white border-t border-slate-100">
+        <!-- 6. CONTACT -->
+        <section id="contact" class="py-24 bg-white border-t border-slate-50">
             <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20">
                 <div>
-                    <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-10 text-navy leading-none uppercase">Send Us a<br>Secure Message</h2>
-                    <form class="space-y-6">
+                    <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-10 text-navy leading-none uppercase">Contact Us<br>Securely</h2>
+                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Request sent. Our specialists will contact you shortly.');">
                         <div class="grid grid-cols-2 gap-4">
-                            <input type="text" placeholder="Full Name *" class="shadcn-input" required>
-                            <input type="email" placeholder="Email Address *" class="shadcn-input" required>
+                            <div><label class="text-[10px] font-black uppercase text-slate-400 mb-1">Full Name *</label><input type="text" placeholder="Your name" class="shadcn-input" required></div>
+                            <div><label class="text-[10px] font-black uppercase text-slate-400 mb-1">Email *</label><input type="email" placeholder="your@email.com" class="shadcn-input" required></div>
                         </div>
-                        <input type="text" placeholder="Company Name" class="shadcn-input">
-                        <select class="shadcn-input" required>
-                            <option value="" disabled selected>Service Interest...</option>
-                            <option>HS classification tool</option>
-                            <option>Customs Advisory</option>
-                            <option>Duty Drawbacks</option>
-                        </select>
-                        <textarea placeholder="Tell us about your needs..." class="shadcn-input h-32" required></textarea>
-                        <button type="submit" class="w-full bg-primary text-white py-5 rounded-xl font-bold uppercase text-[11px] tracking-widest shadow-xl transition">Submit Secure Request</button>
+                        <div><label class="text-[10px] font-black uppercase text-slate-400 mb-1">Company Name</label><input type="text" placeholder="Your company" class="shadcn-input"></div>
+                        <div>
+                            <label class="text-[10px] font-black uppercase text-slate-400 mb-1">Service Interest *</label>
+                            <select class="shadcn-input" required>
+                                <option value="" disabled selected>Choose a solution...</option>
+                                <option>HS Classification Tool</option>
+                                <option>Customs Advisory & Compliance</option>
+                                <option>Duty Drawbacks</option>
+                            </select>
+                        </div>
+                        <div><label class="text-[10px] font-black uppercase text-slate-400 mb-1">Message *</label><textarea placeholder="Tell us about your needs..." class="shadcn-input h-32" required></textarea></div>
+                        <button type="submit" class="w-full bg-primary text-white py-5 rounded-xl font-bold uppercase text-[11px] tracking-widest shadow-xl transition hover:scale-[1.01]">Submit Secure Request</button>
                         <p class="text-center text-[10px] text-slate-400 font-bold uppercase flex items-center justify-center gap-1 mt-4">🔒 SSL 256-BIT ENCRYPTED</p>
                     </form>
                 </div>
 
                 <div class="space-y-12">
                     <div class="flex flex-col items-center bg-slate-50 border border-slate-200 p-10 rounded-3xl">
-                        <img src="wechat_qr.png" class="w-48 h-auto grayscale opacity-80 mb-4" alt="WeChat">
+                        <img src="wechat_qr.png" class="w-48 h-auto grayscale opacity-80 mb-4" alt="WeChat QR Code">
                         <p class="text-[11px] font-black uppercase tracking-widest text-slate-400">Scan to add me as friend</p>
                     </div>
                     <div class="bg-navy text-white p-10 rounded-3xl space-y-8 shadow-2xl">
-                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1">Office Hub</h4><p class="font-bold text-sm uppercase">PO BOX 1301 BOROKO, NCD, PNG</p></div>
-                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1">WhatsApp Business</h4><p class="font-black text-2xl">+675 7676 1118</p></div>
-                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1">Email</h4><p class="font-bold text-sm">md@borderlogixpng.com</p></div>
+                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1 text-center md:text-left">Office Hub</h4><p class="font-bold text-sm uppercase font-sans tracking-wide text-center md:text-left">PO BOX 1301 BOROKO, NCD, PNG</p></div>
+                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1 text-center md:text-left">WhatsApp Business</h4><p class="font-black text-2xl text-center md:text-left">+675 7676 1118</p></div>
+                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1 text-center md:text-left">Corporate Email</h4><p class="font-bold text-sm text-center md:text-left">md@borderlogixpng.com</p></div>
                     </div>
                 </div>
             </div>
@@ -248,7 +276,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-navy py-20 px-6 text-center">
+    <footer class="bg-navy py-20 px-6 text-center border-t border-slate-800">
         <div class="max-w-7xl mx-auto flex flex-col items-center gap-8 text-white">
             <span class="font-black text-sm tracking-[0.2em] uppercase">TIN: 501843833</span>
             <span class="text-[11px] font-bold uppercase tracking-[0.5em] leading-relaxed">&copy; 2026 BORDERLOGIX PNG. PORT MORESBY, PNG. ALL RIGHTS RESERVED.</span>
