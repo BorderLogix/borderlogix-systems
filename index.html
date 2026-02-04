@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BorderLogix PNG | Single Window Trade Gateway</title>
     
-    <!-- SEO & Metadata -->
-    <meta name="description" content="BorderLogix PNG: Premier cross-border solutions for economic operators navigating PNG borders. Cleared, Compliant, Reconciled.">
-
     <!-- FAVICON & APP ICONS -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
 
-    <!-- Fonts: Outfit (Mimics Euclid Circular A), Inter for Body, Montserrat for Page Titles -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@600;800;900&family=Outfit:wght@800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -81,6 +78,10 @@
             transition: transform 0.3s ease;
         }
         .wa-float:hover { transform: scale(1.1); }
+
+        /* Custom scrollbar for modals */
+        .modal-scroll::-webkit-scrollbar { width: 6px; }
+        .modal-scroll::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
     </style>
 </head>
 <body class="antialiased">
@@ -90,14 +91,13 @@
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72 1.5 3.903 2.302 6.16 2.302h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
-    <!-- Fixed Header -->
-    <nav class="fixed top-0 w-full z-50 bg-white border-b border-border h-16 md:h-20 flex items-center justify-between px-4 md:px-12 shadow-sm">
+    <!-- Navbar Header -->
+    <nav class="fixed top-0 w-full z-50 bg-white border-b border-border h-16 md:h-20 flex items-center justify-between px-4 md:px-12 shadow-sm text-center">
         <div class="flex items-center gap-2 md:gap-3 shrink-0">
             <img src="blx_logo.jpg" alt="Logo" class="h-8 w-8 md:h-11 md:w-11 rounded-full border border-primary">
             <span class="font-extrabold text-[12px] md:text-xl tracking-tighter text-primary uppercase whitespace-nowrap hidden xs:block">BORDERLOGIX PNG</span>
         </div>
         <div class="flex items-center gap-3 md:gap-6">
-            <!-- STACKED & CENTERED REQUEST QUOTE BUTTON -->
             <a href="#contact" class="flex flex-col items-center justify-center text-center page-title text-[8px] md:text-[10px] leading-[1.1] tracking-widest text-primary uppercase border border-primary px-3 py-1 md:px-4 md:py-1.5 rounded hover:bg-primary hover:text-white transition shrink-0">
                 <span>REQUEST</span>
                 <span>QUOTE</span>
@@ -108,77 +108,70 @@
         </div>
     </nav>
 
-    <!-- Mobile Navigation Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-navy hidden flex flex-col p-10 text-white overflow-y-auto text-center">
-        <div class="flex justify-between items-center mb-12 text-primary font-bold uppercase text-[10px] tracking-widest">
-            <span>Gateway Portal</span>
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-navy hidden flex flex-col p-10 text-white overflow-y-auto">
+        <div class="flex justify-between items-center mb-12">
+            <span class="text-[10px] font-black uppercase tracking-widest text-primary">Gateway Navigation</span>
             <button onclick="toggleMenu()" class="text-4xl font-light text-white">&times;</button>
         </div>
-        <div class="flex flex-col gap-8 text-2xl font-light">
+        <div class="flex flex-col gap-8 text-2xl font-light text-center uppercase tracking-widest">
             <a href="#home" onclick="closeMenu()">Home</a>
             <a href="#about" onclick="closeMenu()">About</a>
             <a href="#solutions" onclick="closeMenu()">Solutions</a>
             <a href="#resources" onclick="closeMenu()">Resources</a>
-            <a href="#login" onclick="closeMenu()" class="hover:text-primary transition text-primary font-bold">Client Portal</a>
-            <a href="#contact" onclick="closeMenu()" class="hover:text-primary transition text-primary font-bold underline">Request Quote</a>
+            <a href="#login" onclick="closeMenu()" class="text-primary font-bold">Client Portal</a>
+            <a href="#contact" onclick="closeMenu()" class="text-primary font-bold underline">Request Quote</a>
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
     <main>
-
-        <!-- 1. HOME SECTION (wharf_bialla.jpg) -->
+        <!-- 1. HOME SECTION -->
         <section id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
             <div class="absolute inset-0">
                 <img src="wharf_bialla.jpg" class="w-full h-full object-cover" alt="Bialla Wharf">
                 <div class="absolute inset-0 bg-black/60"></div>
             </div>
             <div class="relative max-w-5xl px-6 text-white pt-20">
-                <h1 class="google-sans-flex text-5xl md:text-9xl uppercase mb-6 leading-none">CLEARED.<br>COMPLIANT.<br><span class="text-primary">RECONCILED.</span></h1>
+                <h1 class="google-sans-flex text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase mb-6 leading-none">CLEARED.<br>COMPLIANT.<br><span class="text-primary">RECONCILED.</span></h1>
                 <p class="text-sm md:text-2xl text-slate-200 mb-12 font-light tracking-widest uppercase italic leading-snug">Streamlined Cross-Border Solutions for PNG Traders</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#solutions" class="bg-primary text-white px-12 py-4 rounded-md font-bold uppercase tracking-widest text-sm shadow-2xl hover:brightness-110 transition">Our Services</a>
-                    <button disabled class="btn-disabled backdrop-blur-md px-12 py-4 rounded-md font-bold uppercase tracking-widest text-sm flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                        Tool Under Maintenance
-                    </button>
-                </div>
+                <a href="#solutions" class="bg-primary text-white px-12 py-4 rounded-md font-bold uppercase tracking-widest text-sm shadow-2xl hover:brightness-110 transition">Our Services</a>
             </div>
         </section>
 
-        <!-- 2. ABOUT SECTION (wharf_pom.jpg) -->
-        <section id="about" class="bg-white py-24 px-6 border-b">
+        <!-- 2. ABOUT SECTION -->
+        <section id="about" class="bg-white">
             <div class="section-img-header" style="background-image: url('wharf_pom.jpg');"></div>
-            <div class="max-w-5xl mx-auto py-24 text-center">
+            <div class="max-w-5xl mx-auto py-24 px-6">
                 <h2 class="page-title text-4xl md:text-6xl uppercase tracking-tighter mb-10 text-navy">About</h2>
-                <div class="grid gap-8 text-slate-700 leading-relaxed text-lg max-w-4xl mx-auto">
+                <div class="grid gap-8 text-slate-700 leading-relaxed text-lg">
                     <p class="font-bold text-navy text-xl leading-tight border-l-4 border-primary pl-6 text-left">Proudly PNG-owned and based in Port Moresby, BorderLogix is a premier provider of cross-border solutions, driving efficiency for economic operators navigating PNG borders.</p>
-                    <p class="text-left">Established in 2021, right in the middle of the pandemic, with a mission to make trade easier and more reliable. We leverage over 20 years of industry expertise and extensive nationwide networks to keep your business in step with the WCO SAFE framework and PNG Customs Act.</p>
+                    <p>Established in 2021, right in the middle of the pandemic, with a mission to make trade easier and more reliable. With more than two decades of experience and strong connections across the country, we work directly with border agencies to keep your business in step with the WCO SAFE framework and PNG Customs Act and relevant legislation.</p>
+                    <p>Our cutting-edge Single Window trade PNG platform streamlines operations for local, international, and e-commerce traders. By utilizing automated reconciliation, we eliminate audit mis-classifications and ensure rapid, accurate transactions that meet the highest regulatory benchmarks.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 3. SOLUTIONS SECTION (wharf_lae.jpg) -->
-        <section id="solutions" class="bg-slate-50 py-24 px-6 border-b">
+        <!-- 3. SOLUTIONS SECTION -->
+        <section id="solutions" class="bg-slate-50">
             <div class="section-img-header" style="background-image: url('wharf_lae.jpg');"></div>
-            <div class="max-w-7xl mx-auto py-24 text-center">
+            <div class="max-w-7xl mx-auto py-24 px-6 text-center">
                 <h2 class="page-title text-4xl md:text-6xl uppercase tracking-tighter mb-16 text-navy leading-none uppercase font-black">Solutions</h2>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white border border-slate-200 p-10 rounded-2xl shadow-xl flex flex-col items-center">
+                    <div class="bg-white border border-slate-200 p-10 rounded-2xl shadow-xl">
                         <h3 class="font-black text-xl mb-6 uppercase text-navy leading-none">Automated HS Classification</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8">Proprietary engine for precise Harmonized System nomenclature assignment to mitigate penalties.</p>
+                        <p class="text-slate-500 text-sm mb-8 leading-relaxed">Proprietary engine for precise Harmonized System nomenclature assignment to mitigate penalties.</p>
                         <div class="mt-auto">
                             <button disabled class="bg-slate-400 text-white w-full px-8 py-4 rounded font-bold uppercase text-[10px] tracking-widest cursor-not-allowed">Access Paused</button>
                             <br><span class="maintenance-blink">Audit Engine Maintenance</span>
                         </div>
                     </div>
-                    <div class="bg-white border-2 border-primary p-10 rounded-2xl shadow-2xl scale-105 z-10">
+                    <div class="bg-white border-2 border-primary p-10 rounded-2xl shadow-xl scale-105 z-10">
                         <h3 class="font-black text-xl mb-6 uppercase text-navy leading-none">Strategic Advisory</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8">Consulting on Customs Valuation, Rules of Origin, and Trade Agreement eligibility for global supply chains.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-8">End-to-end support on Customs Valuation, Rules of Origin, and Trade Agreement eligibility.</p>
                         <a href="#contact" class="mt-auto bg-navy text-white w-full block py-4 rounded font-bold uppercase text-[10px] tracking-widest shadow-lg mt-4">Inquire Now</a>
                     </div>
-                    <div class="bg-white border border-slate-200 p-10 rounded-2xl shadow-xl">
-                        <h3 class="font-black text-xl mb-6 uppercase text-navy leading-none">Duty Drawbacks</h3>
+                    <div class="bg-white border border-slate-200 p-10 rounded-2xl shadow-xl text-center">
+                        <h3 class="font-black text-xl mb-6 uppercase text-navy leading-none text-center">Duty Drawbacks</h3>
                         <p class="text-slate-500 text-sm leading-relaxed mb-8">Identify and reclaim overpaid duties through comprehensive programs and revenue recovery cycles.</p>
                         <a href="#contact" class="mt-auto bg-primary text-white w-full block py-4 rounded font-bold uppercase text-[10px] tracking-widest shadow-lg mt-4 text-center">Start Recovery</a>
                     </div>
@@ -186,11 +179,11 @@
             </div>
         </section>
 
-        <!-- 4. RESOURCES SECTION (wharf_kimbe.jpg) -->
+        <!-- 4. RESOURCES SECTION -->
         <section id="resources" class="bg-white py-24 px-6 border-b">
             <div class="section-img-header" style="background-image: url('wharf_kimbe.jpg');"></div>
             <div class="max-w-4xl mx-auto py-24 text-center uppercase tracking-tighter">
-                <h2 class="page-title text-4xl md:text-6xl mb-12 text-navy uppercase tracking-tighter text-center">Resources</h2>
+                <h2 class="page-title text-4xl md:text-6xl mb-12 text-navy text-center uppercase">Resources</h2>
                 <div class="grid gap-6">
                     <a href="https://customs.gov.pg/legislations/" target="_blank" class="flex items-center justify-between p-10 border border-slate-200 rounded-2xl hover:border-primary transition group font-sans">
                         <span class="font-black uppercase text-sm tracking-widest group-hover:text-primary transition font-sans text-center">PNG Customs Laws</span>
@@ -203,25 +196,10 @@
                 </div>
             </div>
         </section>
-
-        <!-- 5. LOGIN -->
-        <section id="login" class="py-32 bg-slate-100 flex items-center justify-center">
-            <div class="max-w-md w-full px-6">
-                <div class="bg-white p-10 rounded-3xl shadow-2xl border border-slate-200 text-center">
-                    <img src="blx_logo.jpg" class="w-16 h-16 rounded-full mx-auto mb-6 border-2 border-primary">
-                    <h2 class="page-title text-3xl font-black mb-10 uppercase tracking-tighter text-navy leading-none uppercase">Client Portal</h2>
-                    <form class="space-y-6 text-left">
-                        <input type="text" placeholder="USERNAME" class="shadcn-input">
-                        <input type="password" placeholder="PASSWORD" class="shadcn-input">
-                        <button class="w-full bg-primary text-white py-4 rounded-xl font-bold uppercase tracking-widest text-[11px] shadow-lg">Authenticate</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. CONTACT SECTION (Request Quote) -->
-        <section id="contact" class="py-24 bg-white border-t border-slate-200 px-6">
-            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
+        
+        <!-- 5. CONTACT SECTION -->
+        <section id="contact" class="py-24 bg-white border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20">
                 <div>
                     <h2 class="page-title text-4xl md:text-6xl uppercase tracking-tighter mb-10 text-navy leading-none uppercase">Request Quote</h2>
                     <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
@@ -234,18 +212,19 @@
                         <select name="service" class="shadcn-input" required>
                             <option value="" disabled selected>Service Interest...</option>
                             <option>Duty Drawback Reconciliation</option>
-                            <option>Compliance Advisory</option>
-                            <option>HS Tool Inquiry</option>
+                            <option>HS Classification Tool</option>
+                            <option>Strategic Customs Advisory</option>
                         </select>
                         <textarea name="message" placeholder="Message..." class="shadcn-input h-32" required></textarea>
                         <button type="submit" class="w-full bg-primary text-white py-5 rounded-xl font-bold uppercase text-[11px] tracking-widest shadow-xl transition hover:scale-[1.01]">Submit Secure Request</button>
+                        <p class="text-center text-[10px] text-slate-400 font-bold uppercase mt-4">🔒 SSL 256-BIT ENCRYPTED</p>
                     </form>
                 </div>
-                <div class="space-y-10">
+                <div class="space-y-10 text-center md:text-left">
                     <div class="bg-navy text-white p-10 rounded-[2.5rem] space-y-8 shadow-2xl">
-                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1 font-sans">Office Hub</h4><p class="font-bold text-sm uppercase font-sans">PO BOX 1301 BOROKO, NCD, PNG</p></div>
+                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1 font-sans">Office Hub</h4><p class="font-bold text-sm uppercase">PO BOX 1301 BOROKO, NCD, PNG</p></div>
                         <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1 font-sans">WhatsApp Business</h4><p class="font-black text-2xl tracking-tighter text-white">+675 7676 1118</p></div>
-                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1 font-sans text-xs">Direct Email</h4><p class="font-bold text-sm text-white">md@borderlogixpng.com</p></div>
+                        <div><h4 class="text-primary text-[10px] font-black uppercase tracking-widest mb-1 font-sans text-xs">Direct Email</h4><p class="font-bold text-sm text-white font-sans uppercase">md@borderlogixpng.com</p></div>
                     </div>
                 </div>
             </div>
@@ -255,16 +234,16 @@
     <!-- FOOTER WITH LEGAL LINKS -->
     <footer class="bg-navy py-20 px-6 text-center border-t border-slate-800 text-white">
         <div class="max-w-7xl mx-auto flex flex-col items-center gap-8">
-            <span class="font-black text-sm tracking-[0.2em] uppercase">TIN: 501843833</span>
+            <!-- BRIGHT WHITE TIN -->
+            <span class="font-black text-sm tracking-[0.2em] uppercase text-white">TIN: 501843833</span>
             
-            <!-- Legal Buttons -->
-            <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-2">
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8">
                 <button onclick="openLegal('terms')" class="text-[10px] font-bold uppercase tracking-widest text-primary hover:text-white border border-primary/20 px-4 py-1.5 rounded transition">1. Terms of Use</button>
                 <button onclick="openLegal('privacy')" class="text-[10px] font-bold uppercase tracking-widest text-primary hover:text-white border border-primary/20 px-4 py-1.5 rounded transition">2. Privacy Policy</button>
             </div>
             
-            <!-- Copyright / IP Notice Link -->
-            <button onclick="openLegal('copyright')" class="text-[11px] font-bold uppercase tracking-[0.5em] leading-relaxed text-white hover:text-primary transition">
+            <!-- BRIGHT WHITE COPYRIGHT -->
+            <button onclick="openLegal('copyright')" class="text-[11px] font-bold uppercase tracking-[0.4em] leading-relaxed text-white hover:text-primary transition">
                 3. &copy; 2026 BORDERLOGIXPNG. ALL RIGHTS RESERVED.
             </button>
         </div>
@@ -272,47 +251,54 @@
 
     <!-- LEGAL MODALS -->
     <!-- 1. TERMS OF USE -->
-    <div id="legal-modal-terms" class="hidden fixed inset-0 z-[100] bg-navy/95 backdrop-blur-md p-6 overflow-y-auto">
-        <div class="max-w-3xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-2xl relative">
+    <div id="legal-modal-terms" class="hidden fixed inset-0 z-[100] bg-navy/95 backdrop-blur-md p-4 md:p-10 overflow-y-auto">
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-14 shadow-2xl relative">
             <button onclick="closeLegal('terms')" class="absolute top-6 right-6 text-2xl font-light">&times;</button>
-            <h2 class="page-title text-2xl font-black text-navy uppercase mb-8 border-b-4 border-primary pb-2">BorderLogix Core – Terms of Use</h2>
-            <div class="space-y-6 text-sm text-slate-700 leading-relaxed">
-                <p><strong>License to Use:</strong> BorderLogix grants the User a non-exclusive, non-transferable license to access the platform for preparing Customs declarations.</p>
-                <p><strong>User Responsibility:</strong> The User is the "Declarant" under the PNG Customs Act. BorderLogix is a tool, not a broker. The User must verify all data before lodgement.</p>
-                <p><strong>Prohibited Acts:</strong> Users shall not attempt to reverse-engineer the HS Classification logic or use the platform to facilitate illicit trade.</p>
-                <p><strong>Subscription & Payment:</strong> Access is contingent upon timely payment. Failure to pay will result in the suspension of the XML generation features and "Locking" of the audit archive.</p>
-                <p><strong>Termination:</strong> BorderLogix reserves the right to terminate any account found to be intentionally inputting fraudulent data.</p>
+            <h2 class="page-title text-2xl font-black text-navy uppercase mb-2 border-b-4 border-primary pb-2 inline-block">Terms of Service</h2>
+            <p class="text-[10px] font-bold text-slate-400 mb-8 uppercase tracking-widest">Effective Date: 04 February 2026 | Last Updated: 21 January 2026</p>
+            
+            <div class="modal-scroll space-y-8 text-xs md:text-sm text-slate-700 leading-relaxed text-left h-[60vh] overflow-y-auto pr-4">
+                <div><h4 class="font-black text-navy uppercase text-xs mb-2">1. Definitions</h4><p>Agreement means these Terms; BorderLogix (TIN: 501843833); Platform refers to BORDERLOGIX HS and BORDERLOGIX CORE.</p></div>
+                <div><h4 class="font-black text-navy uppercase text-xs mb-2">2. Acceptance of Terms</h4><p>By accessing the Platform, you agree to be bound by these Terms. If you represent an entity, you warrant authority to bind said entity.</p></div>
+                <div><h4 class="font-black text-navy uppercase text-xs mb-2">3. License Grant and Restrictions</h4><p>We grant a limited, non-transferable license. You expressly agree NOT to: Reverse engineer algorithms, copy interfaces, scrape data, or use the Platform to facilitate illicit trade.</p></div>
+                <div><h4 class="font-black text-navy uppercase text-xs mb-2">4. Intellectual Property</h4><p>BorderLogix retains all rights to the classification algorithms and XML generation methodology. User retains ownership of uploaded trade documents.</p></div>
+                <div><h4 class="font-black text-navy uppercase text-xs mb-2">5. Subscription & Payment</h4><p>Failure to pay results in suspension of XML features and "Locking" of the audit archive until account settlement.</p></div>
+                <div><h4 class="font-black text-navy uppercase text-xs mb-2">6. User Responsibility (The Declarant)</h4><p>Under the PNG Customs Act, the User is the "Declarant." BorderLogix is a tool, not a broker. User must verify all data before lodgement.</p></div>
+                <div><h4 class="font-black text-navy uppercase text-xs mb-2">7. Confidentiality</h4><p>Non-public information must be protected for five (5) years post-termination.</p></div>
+                <div><h4 class="font-black text-navy uppercase text-xs mb-2">8. Liability & Indemnity</h4><p>Liability is limited to fees paid in the last 12 months. User indemnifies BorderLogix against disputes with PNG Customs.</p></div>
+                <div><h4 class="font-black text-navy uppercase text-xs mb-2">9. Termination</h4><p>Immediate termination for fraud or reverse engineering attempts.</p></div>
+                <div><h4 class="font-black text-navy uppercase text-xs mb-2">10. Governing Law</h4><p>These terms are governed by the laws of Papua New Guinea. Disputes are subject to the National Court of PNG.</p></div>
             </div>
-            <button onclick="closeLegal('terms')" class="mt-10 bg-navy text-white px-8 py-3 rounded-xl font-bold uppercase text-[10px]">Close Document</button>
+            <button onclick="closeLegal('terms')" class="mt-8 bg-navy text-white px-10 py-3 rounded-xl font-bold uppercase text-[10px] tracking-widest">Close Document</button>
         </div>
     </div>
 
     <!-- 2. PRIVACY POLICY -->
-    <div id="legal-modal-privacy" class="hidden fixed inset-0 z-[100] bg-navy/95 backdrop-blur-md p-6 overflow-y-auto">
-        <div class="max-w-3xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-2xl relative">
+    <div id="legal-modal-privacy" class="hidden fixed inset-0 z-[100] bg-navy/95 backdrop-blur-md p-4 md:p-10 overflow-y-auto">
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-14 shadow-2xl relative text-left">
             <button onclick="closeLegal('privacy')" class="absolute top-6 right-6 text-2xl font-light">&times;</button>
-            <h2 class="page-title text-2xl font-black text-navy uppercase mb-8 border-b-4 border-primary pb-2">BorderLogix Core – Privacy Policy</h2>
-            <div class="space-y-6 text-sm text-slate-700 leading-relaxed">
+            <h2 class="page-title text-2xl font-black text-navy uppercase mb-8 border-b-4 border-primary pb-2 inline-block">Privacy Policy</h2>
+            <div class="modal-scroll space-y-6 text-sm text-slate-700 leading-relaxed h-[60vh] overflow-y-auto pr-4">
                 <p><strong>Data Collection:</strong> We collect company identifiers (TIN), transaction metadata, and uploaded trade documents (Invoices/BLs).</p>
                 <p><strong>Purpose of Use:</strong> Data is used solely to generate ASYCUDA-compliant XMLs and provide an audit trail for the User.</p>
-                <p><strong>Data Sharing:</strong> We never sell trade data to third parties. Data is only shared with PNG Customs if the User initiates a "Secure Audit Link" or if required by a court order.</p>
-                <p><strong>Security:</strong> We utilize industry-standard AES-256 encryption. Our staff cannot view your commercial invoice values without a specific support ticket authorization from the User.</p>
-                <p><strong>Retention:</strong> Data is stored for the statutory period required by the Customs Act (usually 5-7 years) unless the User requests earlier deletion (subject to legal requirements).</p>
+                <p><strong>Data Sharing:</strong> We never sell trade data. Data is only shared with PNG Customs if the User initiates a "Secure Audit Link" or if required by court order.</p>
+                <p><strong>Security:</strong> We utilize AES-256 encryption. Staff cannot view commercial invoice values without specific ticket authorization.</p>
+                <p><strong>Retention:</strong> Data is stored for the statutory period required by the Customs Act (5-7 years).</p>
             </div>
             <button onclick="closeLegal('privacy')" class="mt-10 bg-navy text-white px-8 py-3 rounded-xl font-bold uppercase text-[10px]">Close Document</button>
         </div>
     </div>
 
     <!-- 3. COPYRIGHT NOTICE -->
-    <div id="legal-modal-copyright" class="hidden fixed inset-0 z-[100] bg-navy/95 backdrop-blur-md p-6 overflow-y-auto">
-        <div class="max-w-3xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-2xl relative">
+    <div id="legal-modal-copyright" class="hidden fixed inset-0 z-[100] bg-navy/95 backdrop-blur-md p-4 md:p-10 overflow-y-auto">
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-14 shadow-2xl relative text-left">
             <button onclick="closeLegal('copyright')" class="absolute top-6 right-6 text-2xl font-light">&times;</button>
-            <h2 class="page-title text-2xl font-black text-navy uppercase mb-8 border-b-4 border-primary pb-2">Copyright & Intellectual Property Notice</h2>
-            <div class="space-y-6 text-sm text-slate-700 leading-relaxed">
-                <p><strong>Ownership of Logic:</strong> The proprietary classification logic, the "Audit-Pack" clustering method, and the specific database schema used in this application are the sole intellectual property of BorderLogix.</p>
-                <p><strong>Software Code:</strong> All source code, UI designs, and XML mapping structures are protected under PNG and International Copyright Laws.</p>
-                <p><strong>Trade Secrets:</strong> The specific "Rules-Engine" developed from years of Customs operational experience is a protected trade secret. Any unauthorized reproduction or "cloning" of this system logic will be met with legal action.</p>
-                <p><strong>User Data:</strong> While BorderLogix owns the software and logic, the User retains ownership of the specific trade data (Invoices/BLs) uploaded to the platform.</p>
+            <h2 class="page-title text-2xl font-black text-navy uppercase mb-8 border-b-4 border-primary pb-2 inline-block">Intellectual Property</h2>
+            <div class="modal-scroll space-y-6 text-sm text-slate-700 leading-relaxed h-[60vh] overflow-y-auto pr-4">
+                <p><strong>Ownership of Logic:</strong> Proprietary classification logic and the "Audit-Pack" method are the sole property of BorderLogix.</p>
+                <p><strong>Software Code:</strong> Source code, UI designs, and XML mapping structures are protected under PNG and International Copyright Laws.</p>
+                <p><strong>Trade Secrets:</strong> The "Rules-Engine" developed from years of Customs operational experience is a protected trade secret.</p>
+                <p><strong>Legal Action:</strong> Any unauthorized reproduction or "cloning" of system logic will be met with legal action in the National Court of PNG.</p>
             </div>
             <button onclick="closeLegal('copyright')" class="mt-10 bg-navy text-white px-8 py-3 rounded-xl font-bold uppercase text-[10px]">Close Document</button>
         </div>
